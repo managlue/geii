@@ -1,0 +1,17 @@
+/* adapte les images pour qu'elles soient de la bonne taille et centrÃ©s */
+.carousel-item img {
+    max-height: 900px;
+    object-fit: cover;
+    margin: auto;
+    width: 100%;
+}
+
+/* mettre un fond gris derriere les images */
+.carousel-item {
+    background-color: rgba(119, 136, 153, 0.76);
+}
+
+.carousel {
+    height: 900px;
+    width: auto;
+}
