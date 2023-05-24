@@ -6,5 +6,6 @@
 </head>
 <body>
     <p>Bienvenu sur le site Du Camping des Rondoudous.</p>
+
 </body>
 </html>

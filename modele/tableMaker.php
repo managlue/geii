@@ -11,7 +11,7 @@
     unset($colonnes[0]);
 
     if (!empty($colonnes)) {
-        var_dump($colonnes);
+        // var_dump($colonnes);
 ?>
 
 <table class="table table-striped">
