@@ -8,51 +8,48 @@
 </form>
 
 <?php
-    include 'connexionBd.php';
 
-    // Récupérer les données du formulaire
-    if (!isset($_POST['login']) || !isset($_POST['password'])) exit;
-    $login = $_POST['login'];
-    $password = $_POST['password'];
+include 'connexionBd.php';
 
-    foreach (['etudiant', 'enseignant'] as $lookFor) {
-        $results = login($lookFor, $login, $pdo);
+// Récupérer les données du formulaire
+if (!isset($_POST['login']) || !isset($_POST['password'])) exit;
+$login = $_POST['login'];
+$password = $_POST['password'];
 
-        if (!empty($results)) {
-            $passwd =  $results[0]["pswd_$lookFor"];
+foreach (['etudiant', 'enseignant'] as $lookFor) {
+    $results = login($lookFor, $login, $pdo);
 
-            // if (password_verify($password, $passwd)) {
-            if ($password == $passwd) {
-                if (isset($results[0]["id_$lookFor"])) {
-                    session_start();
-                    $_SESSION['idConnected'] = $results[0]["id_$lookFor"];
-                    $_SESSION['nom'] = $results[0]["nom_$lookFor"];
-                    $_SESSION['prenom'] = $results[0]["prenom_$lookFor"];
-                    var_dump($_SESSION);
-                }
-                header("location: ../view/$lookFor" . '.php');
-                exit;
-            } else $pb = 'Mot de passe';
-        } else $pb = 'Identifiant';
-    }
+    if (!empty($results)) {
+        $passwd =  $results[0]["pswd_$lookFor"];
 
-    echo "$pb incorrect.";
+        // if (password_verify($password, $passwd)) {
+        if ($password == $passwd) {
+            if (isset($results[0]["id_$lookFor"])) {
+                session_start();
+                $_SESSION['idConnected'] = $results[0]["id_$lookFor"];
+                $_SESSION['nom'] = $results[0]["nom_$lookFor"];
+                $_SESSION['prenom'] = $results[0]["prenom_$lookFor"];
+                var_dump($_SESSION);
+            }
+            header("location: ../view/$lookFor" . '.php');
+            exit;
+        } else $pb = 'Mot de passe';
+    } else $pb = 'Identifiant';
+}
 
-    function login($who, $login, $pdo)
-    {
-        $sql = "SELECT *
-                FROM $who
-                WHERE login_$who = :login";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':login', $login);
-        $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo "$pb incorrect.";
 
-        return $results;
-    }
+function login($who, $login, $pdo)
+{
+    $sql = "SELECT *
+            FROM $who
+            WHERE login_$who = :login";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':login', $login);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    function verifpsswd($password, $passwd, $lookFor)
-    {
+    return $results;
+}
 
-    }
 ?>
