@@ -1,4 +1,4 @@
-<!-- formmulaire de connection -->
+<!-- formulaire de connexion -->
 <form action="login.php" method="POST">
     <label for="login">Login:</label>
     <input type="text" id="login" name="login" required><br><br>
@@ -8,31 +8,46 @@
 </form>
 
 <?php
+    include 'connexionBd.php';
+
     // Récupérer les données du formulaire
+    if (!isset($_POST['login']) || !isset($_POST['password'])) exit;
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    $results = login('Etudiant', $login, $pdo);
+    $results = login('etudiant', $login, $pdo);
 
-    if (empty($results)) {
-        $results = login('Enseignant', $login, $pdo);
+    if (!empty($results)) {
+        $lookFor = 'etudiant';
+        $passwd =  $results[0]["pswd_$lookFor"];
+    } else {
+        $results = login('enseignant', $login, $pdo);
+        if (!empty($results)) {
+            $lookFor = 'enseignant';
+            $passwd =  $results[0]['pswd_enseignant'];
+        } else {
+            echo 'Idendifiant incorrect.';
+            exit;
+        }
     }
 
-    if (empty($results)) {
-        // popup d'erreur
-        // on ne fait rien d'autre
-    }
+    // if (password_verify($password, $passwd)) {
+    if ($password == $passwd) {    
+        if (isset($results[0]["id_$lookFor"])) {
+            session_start();
+            $_SESSION['idConnected'] = $results[0]["id_$lookFor"];
+            $_SESSION['nom'] = $results[0]["nom_$lookFor"];
+            $_SESSION['prenom'] = $results[0]["prenom_$lookFor"];
+            var_dump($_SESSION);
+        }
+        header("location: ../view/$lookFor" . '.php');
 
-    if (password_verify($password, $results['pswd'])) {
-        echo "Authentification réussie !";
-        echo 'Bienvenue ' . $results['nom'] . ', ' . $results['nom'] . ' !';
-    }
+    } else echo 'Mot de passe incorrect.';
     
-
     function login($who, $login, $pdo) {
         $sql = "SELECT *
                 FROM $who
-                WHERE login = :login";
+                WHERE login_$who = :login";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':login', $login);
         $stmt->execute();
