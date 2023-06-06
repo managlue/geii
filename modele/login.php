@@ -32,11 +32,11 @@
                 }
                 header("location: ../view/$lookFor" . '.php');
                 exit;
-            }
-        }
+            } else $pb = 'Mot de passe';
+        } else $pb = 'Identifiant';
     }
 
-    echo 'Mot de passe incorrect.';
+    echo "$pb incorrect.";
 
     function login($who, $login, $pdo)
     {
