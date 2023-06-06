@@ -1,0 +1,55 @@
+.card-body {
+	padding: 20px;
+	background-color: #f8f9fa;
+	border: 1px solid #dee2e6;
+	border-radius: 4px;
+}
+
+.card-offer__header {
+	display: flex;
+	align-items: center;
+}
+
+.card-offer__logo {
+	margin-right: 10px;
+}
+
+.card-offer__logo img {
+	max-width: 100px;
+	height: auto;
+}
+
+.card-offer__text {
+	flex: 1;
+}
+
+.card-offer__company {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.card-title {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.card-offer__description {
+	margin-bottom: 10px;
+}
+
+.details-offer li {
+	margin-bottom: 5px;
+	list-style: none;
+}
+
+.details-offer img {
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+}
+
+.important-list li {
+	color: #dc3545;
+	font-weight: bold;
+}
