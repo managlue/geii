@@ -15,36 +15,31 @@
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    $results = login('etudiant', $login, $pdo);
+    foreach (['etudiant', 'enseignant'] as $lookFor) {
+        $results = login($lookFor, $login, $pdo);
 
-    if (!empty($results)) {
-        $lookFor = 'etudiant';
-        $passwd =  $results[0]["pswd_$lookFor"];
-    } else {
-        $results = login('enseignant', $login, $pdo);
         if (!empty($results)) {
-            $lookFor = 'enseignant';
-            $passwd =  $results[0]['pswd_enseignant'];
-        } else {
-            echo 'Idendifiant incorrect.';
-            exit;
+            $passwd =  $results[0]["pswd_$lookFor"];
+
+            // if (password_verify($password, $passwd)) {
+            if ($password == $passwd) {
+                if (isset($results[0]["id_$lookFor"])) {
+                    session_start();
+                    $_SESSION['idConnected'] = $results[0]["id_$lookFor"];
+                    $_SESSION['nom'] = $results[0]["nom_$lookFor"];
+                    $_SESSION['prenom'] = $results[0]["prenom_$lookFor"];
+                    var_dump($_SESSION);
+                }
+                header("location: ../view/$lookFor" . '.php');
+                exit;
+            }
         }
     }
 
-    // if (password_verify($password, $passwd)) {
-    if ($password == $passwd) {    
-        if (isset($results[0]["id_$lookFor"])) {
-            session_start();
-            $_SESSION['idConnected'] = $results[0]["id_$lookFor"];
-            $_SESSION['nom'] = $results[0]["nom_$lookFor"];
-            $_SESSION['prenom'] = $results[0]["prenom_$lookFor"];
-            var_dump($_SESSION);
-        }
-        header("location: ../view/$lookFor" . '.php');
+    echo 'Mot de passe incorrect.';
 
-    } else echo 'Mot de passe incorrect.';
-    
-    function login($who, $login, $pdo) {
+    function login($who, $login, $pdo)
+    {
         $sql = "SELECT *
                 FROM $who
                 WHERE login_$who = :login";
@@ -54,5 +49,10 @@
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
+    }
+
+    function verifpsswd($password, $passwd, $lookFor)
+    {
+
     }
 ?>
