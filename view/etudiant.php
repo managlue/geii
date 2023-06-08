@@ -34,7 +34,11 @@
         include '../modele/student/getMarks.php';
 
         // voir l'emplois du temps
+        $today = true;
         include '../modele/student/getEdt.php';
+
+        // voir les supports de cours
+        // include '../modele/student/.php';
     ?>
 
     <!-- fin du contenu de la page -->
