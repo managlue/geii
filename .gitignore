@@ -1,2 +1,8 @@
 bootstrap/
-#coucou
+brouillon/
+scripts/
+
+modele/connectionBd.php
+modele/carouselMaker.php
+modele/reviewMaker.php
+modele/tableMaker.php
