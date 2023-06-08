@@ -24,7 +24,7 @@
 
     <body>
 
-    <?php include 'header.php'; ?>
+    <?php include '../header.php'; ?>
 
     <!-- début du contenu de la page -->
 
@@ -33,20 +33,19 @@
 
         // voir les dernières notes
         $limit = 1;
-       
-        include '../../modele/student/getMarks.php';
+        include '../../modele/etudiant/getMarks.php';
 
         // voir l'emplois du temps
         $today = true;
-        include '../../modele/student/getEdt.php';
+        include '../../modele/etudiant/getEdt.php';
 
         // voir les supports de cours
-        // include '../modele/student/.php';
+        // include '../modele/etudiant/.php';
     ?>
 
     <!-- fin du contenu de la page -->
 
-    <?php include 'footer.php'; ?>
+    <?php include '../footer.php'; ?>
 
 </body>
 

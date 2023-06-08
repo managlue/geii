@@ -27,18 +27,18 @@ try {
 
         // echo "La valeur de id_entreprise est : " . $id_entreprise;
 
-        if (isset($_POST['new_password']) && isset($_POST['confirm_password'])) {
+        if (isset($_POST['pwd_inscription']) && isset($_POST['confirm_pwd'])) {
             // Récupérer les nouveaux mots de passe depuis le formulaire
-            $newPassword = $_POST['new_password'];
-            $confirmPassword = $_POST['confirm_password'];
+            $newPassword = $_POST['pwd_inscription'];
+            $confirmPassword = $_POST['confirm_pwd'];
 
             if ($newPassword === $confirmPassword) {
                 // Crypter le mot de passe
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
                 // Mettre à jour le mot de passe de l'utilisateur
-                $updateStmt = $conn->prepare("UPDATE entreprise SET pswd_entreprise = :password WHERE id_entreprise = :id");
-                $updateStmt->bindParam(':password', $hashedPassword);
+                $updateStmt = $conn->prepare("UPDATE entreprise SET pswd_entreprise = :pwd_inscription WHERE id_entreprise = :id");
+                $updateStmt->bindParam(':pwd_inscription', $hashedPassword);
                 $updateStmt->bindParam(':id', $id);
                 $updateStmt->execute();
 

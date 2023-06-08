@@ -38,7 +38,7 @@ if (isset($_POST['sendMailBtn'])) {
 
                 if ($result) {
                     echo '<script>alert("E-mail envoyé avec succès !")</script>';
-                    echo '<script>window.location.href="index.php";</script>';
+                    echo '<script>window.location.href="co.php";</script>';
                 } else {
                     echo '<script>alert("Une erreur s\'est produite lors de l\'envoi de l\'e-mail.")</script>';
                 }
