@@ -23,7 +23,11 @@ session_start();
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Accueil</a>
+                        <a class="nav-link" href="accueil.php">Notre Formation</a>
+                        </li>
+                        <li class="nav-item">
+                        
+                        <a class="nav-link" href="AccueilEnt.php">Espace Entreprise</a>
                         </li>
                         <?php
                         if (isset($_SESSION['id_entreprise'])) {

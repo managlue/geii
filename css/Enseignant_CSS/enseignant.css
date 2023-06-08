@@ -1,0 +1,75 @@
+/* Style du corps */
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+
+/* Style de l'en-tête */
+h1 {
+color: #333;
+text-align: center;
+}
+
+/* Style du formulaire */
+form {
+margin-bottom: 20px;
+}
+
+label {
+font-weight: bold;
+}
+
+select,
+input[type="text"] {
+margin: 5px 0;
+padding: 5px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+input[type="submit"] {
+background-color: #d9e0e7;
+color: #000077;
+padding: 3px 10px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+}
+
+input[type="submit"]:hover {
+background-color: #b8b8cd;
+transition: 600ms;
+padding: 6px;
+}
+
+/* Style du tableau */
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th,
+td {
+padding: 1px;
+border: 1px solid #ccc;
+text-align: center;
+vertical-align: middle;
+}
+
+th {
+    padding: 5px;
+background-color: #f2f2f2;
+font-weight: bold;
+}
+
+/* Style du message de succès */
+.success {
+color: #008000;
+font-weight: bold;
+}
+
+/* Style du message d'erreur */
+.error {
+color: #ff0000;
+font-weight: bold;
+}

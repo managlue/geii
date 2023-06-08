@@ -23,17 +23,38 @@ session_start();
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Accueil</a>
+                            <a class="nav-link" href="accueil.php">Notre Formation</a>
                         </li>
 
-                            <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="AccueilEntreprise.php"  id="offreDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Espace Entreprise
-                            </a>
-                            </li>';
+                        <li class="nav-item">
+                            <a class="nav-link" href="AccueilEnt.php">Espace Entreprise</a>
+                        </li>
 
-                                                
+                            <?php
+                        if (isset($_SESSION['id_entreprise'])) {
+                            echo '
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  id="offreDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Offre Entreprise
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="offreDropdown">
+                                    <li><a class="dropdown-item" href="AjouterOffre.php">Publier une offre</a></li>
+                                    <li><a class="dropdown-item" href="AfficherOffreBD.php">Afficher les offres</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  id="projetDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Projets Tutorés
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="projetDropdown">
+                                    <li><a class="dropdown-item" href="AjouterProjet.php">Ajouter un projet</a></li>
+                                    <li><a class="dropdown-item" href="AfficherProjet.php">Afficher les projets</a></li>
+                                </ul>
+                            </li>';
+                        }
+                        ?>                  
                         <?php
                         $menuConnexion = "";
                         if (isset($_SESSION['id_entreprise'])) {
@@ -47,7 +68,20 @@ session_start();
                             echo '<li><a class="dropdown-item" href="deconnexion.php">Déconnexion</a></li>';
                             echo '</ul>';
                             echo '</li>';     } else {
-                            $menuConnexion = "<li class='nav-item'><a class='nav-link' href='co.php'>Connexion</a></li>\n";
+                                $menuConnexion = '<li class="nav-item dropdown">';
+                                $menuConnexion .= '<a class="nav-link dropdown-toggle" id="menuConnexionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">';
+                                $menuConnexion .= 'Se Connecter';
+                                $menuConnexion .= '</a>';
+                                $menuConnexion .= '<ul class="dropdown-menu" aria-labelledby="menuConnexionDropdown">';
+                                
+                                $menuConnexion .= '<li><a class="dropdown-item" href="#1">Elèves / Enseignant</a></li>';
+                                $menuConnexion .= '<li><a class="dropdown-item"href="co.php">Enseignant</a></li>';
+                                $menuConnexion .= '</ul>';
+                                $menuConnexion .= '</li>';
+                                echo ' <li class="nav-item">';
+                                echo '<a class="nav-link" href="#">Personnel</a>';
+                                echo '</li>';
+                            // <li class='nav-item'><a class='nav-link' href='co.php'>Connexion</a></li>\n";
                         }
                         echo $menuConnexion;
                         ?>
