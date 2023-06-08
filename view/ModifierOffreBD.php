@@ -1,68 +1,121 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
+<?php
+session_start();
 
-<body>
+if (!isset($_SESSION['id_entreprise'])) {
+    header("location: /geii/view/AccueilEnt.php");
+    exit();
+}
 
-    <?php
-    if (!isset($_SESSION['id_entreprise'])) {
-        header("location: /geii/view/AccueilEnt.php");
-        exit();
-    }
+if (isset($_GET['id']) && isset($_POST['titre'])&& isset($_POST['lieu'])&& isset($_POST['contrat'])&& isset($_POST['date_limite'])&& isset($_POST['description']) && isset($_POST['competences'])  && isset($_POST['remuneration']) && isset($_POST['postuler']) && isset($_POST['description_entr']) ) {
+    if (!empty($_GET['id'])) {
+        $id = $_GET['id'];
+        $titre = $_POST['titre'];
+        $lieu = $_POST['lieu'];
+        $contrat = $_POST['contrat'];
+        $date_limite = $_POST['date_limite'];
+        $description = $_POST['description'];
+        $competences = $_POST['competences'];
+        $remuneration = $_POST['remuneration'];
+        $postuler = $_POST['postuler'];
+        $description_entreprise = $_POST['description_entr'];
 
-    if (
-        isset($_POST['id']) && isset($_POST['titre']) && isset($_POST['lieu']) && isset($_POST['contrat']) && isset($_POST['date_limite']) && isset($_POST['description']) && isset($_POST['competences'])  && isset($_POST['remuneration']) && isset($_POST['postuler']) 
-    ) {
-        if (
-            !empty($_POST['id']) && !empty($_POST['titre']) && !empty($_POST['lieu']) && !empty($_POST['contrat']) && !empty($_POST['date_limite']) && !empty($_POST['description']) && !empty($_POST['competences'])  && !empty($_POST['remuneration']) && !empty($_POST['postuler']) 
-        ) {
-            $id = $_POST['id'];
-            $titre = $_POST['titre'];
-            $lieu = $_POST['lieu'];
-            $contrat = $_POST['contrat'];
-            $date_limite = $_POST['date_limite'];
-            $description = $_POST['description'];
-            $competences = $_POST['competences'];
-            $remuneration = $_POST['remuneration'];
-            $postuler = $_POST['postuler'];
 
-            try {
-                $host = "localhost";
-                $dbname = "id20742082_geii";
-                $user = "root";
-                $pass = "";
+        try {
+            $host = "localhost";
+            $dbname = "id20742082_geii";
+            $user = "root";
+            $pass = "";
 
-                $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, '');
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $stmt = $conn->prepare("UPDATE offre_alternance SET titre_offre = :titre, lieu = :lieu, contrat = :contrat, date_limite = :date_limite, sujet_offre = :description, competences = :competences, remuneration = :remuneration, postuler = :postuler WHERE id_offre = :id AND id_entreprise = :id_entreprise");
+            $updates = [];
+            $bindParams = [];
 
-                $stmt->bindParam(':id', $id);
-                $stmt->bindParam(':titre', $titre);
-                $stmt->bindParam(':lieu', $lieu);
-                $stmt->bindParam(':contrat', $contrat);
-                $stmt->bindParam(':date_limite', $date_limite);
-                $stmt->bindParam(':description', $description);
-                $stmt->bindParam(':competences', $competences);
-                $stmt->bindParam(':remuneration', $remuneration);
-                $stmt->bindParam(':postuler', $postuler);
-                $stmt->bindParam(':id_entreprise', $_SESSION['id_entreprise']);
 
-                $stmt->execute();
-            } catch (PDOException $e) {
-                $message = "Échec de la mise à jour : " . $e->getMessage();
+            if (!empty($titre)) {
+                $updates[] = " titre_offre = :titre";
+                $bindParams[] = [':titre', $titre];
+            }
+            if (!empty($lieu)) {
+                $updates[] = "lieu = :lieu";
+                $bindParams[] = [':lieu',  $lieu];
+            }
+            if (!empty($contrat)) {
+                $updates[] = "contrat = :contrat";
+                $bindParams[] = [':contrat', $contrat];
+            }
+            if (!empty($date_limite)) {
+                $updates[] = "date_limite = :date_limite";
+                $bindParams[] = [':date_limite', $date_limite];
+            }
+            if (!empty($description)) {
+                $updates[] = "sujet_offre= :description";
+                $bindParams[] = [':description', $description];
             }
 
-            $conn = null;
-        } else {
-            $message = "Toutes les données doivent être renseignées";
+            if (!empty($competences)) {
+                $updates[] = "competences= :competences";
+                $bindParams[] = [':competences', $competences];
+            }
+
+            if (!empty($remuneration)) {
+                $updates[] = "remuneration = :remuneration";
+                $bindParams[] = [':remuneration', $remuneration];
+            }
+
+            if (!empty($postuler)) {
+                $updates[] = "postuler = :postuler";
+                $bindParams[] = [':postuler', $postuler];
+            }
+
+            if (!empty($description_entr)) {
+                $updates[] = "description_entr = :description_entr";
+                $bindParams[] = [':description_entr', $description_entr];
+            }
+
+
+
+            $sql = "UPDATE offre_alternance SET";
+
+            $updates_count = count($updates);
+            foreach ($updates as $index => $update) {
+                $sql .= " $update";
+                if ($index < $updates_count - 1) {
+                    $sql .= ",";
+                }
+            }
+
+            $sql .= " WHERE  id_offre  = :id AND id_entreprise = :id_entreprise";
+            
+            $bindParams[] = [':id', $id];
+            $bindParams[] = [':id_entreprise', $_SESSION['id_entreprise']];
+
+            $stmt = $conn->prepare($sql);
+
+              // foreach pour les bindparam
+            foreach ($bindParams as $bindParam) {
+                $stmt->bindParam($bindParam[0], $bindParam[1]);
+            }
+
+              // execute
+            $stmt->execute();
+
+           
+
+      
+      
+        } catch (PDOException $e) {
+            $message = "Échec de la mise à jour : " . $e->getMessage();
         }
+
+        $conn = null;
     } else {
-        $message = "Toutes les données doivent être renseignées";
+        $message = "Toutes les données doivent être renseignées.";
     }
+} else {
+    $message = "Toutes les données doivent être renseignées.";
+}
 
-    header("location:/geii/view/AfficherOffreBD.php");
-    ?>
-</body>
-
-</html>
+header("location: /geii/view/AfficherOffreBD.php");
+?>

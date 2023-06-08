@@ -1,58 +1,57 @@
 <?php
-require '../PHPMailer-master/src/PHPMailer.php';
-require '../PHPMailer-master/src/SMTP.php';
-require '../PHPMailer-master/src/Exception.php';
+if (isset($_POST['sendMailBtn'])) {
+    $toEmail = $_POST['toEmail'];
 
+    // Connexion à la base de données en utilisant PDO
+    $host = "localhost";
+    $dbname = "id20742082_geii";
+    $user = "root";
+    $pass = "";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+    try {
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        // Requête pour récupérer l'adresse e-mail de l'entreprise connectée
+        $stmt = $conn->prepare("SELECT id_entreprise, mail_entreprise FROM entreprise WHERE mail_entreprise = :toEmail");
+        $stmt->bindParam(':toEmail', $toEmail);
+        $stmt->execute();
+        $entreprise = $stmt->fetch();
 
+        if ($entreprise) {
+            $email_entreprise = $entreprise['mail_entreprise'];
+            $entreprise_id = $entreprise['id_entreprise'];
 
+            if ($toEmail === $email_entreprise) {
+                // L'adresse e-mail saisie correspond à l'adresse e-mail de l'entreprise connectée, on peut envoyer l'e-mail
+                $fromEmail = "moussisidahmed0@gmail.com";
+                $message = "Veuillez trouver ci-joint le lien de réinitialisation du mot de passe : 
+                <a href='http://projets/geii/view/ChangerMotDePasse.php?id=$entreprise_id'>http://projets/geii/view/ChangerMotDePasse.php?id=$entreprise_id</a>";
 
-// Création d'une nouvelle instance de PHPMailer
-$mail = new PHPMailer(true);
+                $to = $toEmail;
+                $subject = "Réinitialisation du mot de passe";
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= 'From: '.$fromEmail.'<'.$fromEmail.'>' . "\r\n".'Reply-To: '.$fromEmail."\r\n" . 'X-Mailer: PHP/' . phpversion();
 
-try {
-    // Paramètres du serveur d'e-mail
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';  // Serveur SMTP (par exemple, smtp.gmail.com pour Gmail)
-    $mail->SMTPAuth = false;  // Désactiver l'authentification SMTP
-    $mail->SMTPAutoTLS = true;  // Activer le chiffrement TLS automatique
-    $mail->Port = 25;
+                $result = mail($to, $subject, $message, $headers);
 
-    // Destinataire et expéditeur
-    $mail->setFrom('moussisidahmed0@gmail.com', 'Votre Nom');
-    $mail->addAddress('moussisidahmed0@gmail.com', 'Nom du destinataire');
-
-    // Contenu de l'e-mail
-    $mail->isHTML(true);
-    $mail->Subject = 'Exemple d\'e-mail sans SMTP';
-    $mail->Body = 'Bonjour,<br><br>Ceci est un exemple d\'e-mail envoyé sans utiliser de serveur SMTP.<br><br>Cordialement,<br>Votre Nom';
-
-    // Envoi de l'e-mail
-    $mail->send();
-    echo 'L\'e-mail a été envoyé avec succès.';
-} catch (Exception $e) {
-    echo 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail : ' . $mail->ErrorInfo;
+                if ($result) {
+                    echo '<script>alert("E-mail envoyé avec succès !")</script>';
+                    echo '<script>window.location.href="index.php";</script>';
+                } else {
+                    echo '<script>alert("Une erreur s\'est produite lors de l\'envoi de l\'e-mail.")</script>';
+                }
+            } else {
+                echo '<script>alert("L\'adresse e-mail saisie ne correspond pas à l\'adresse e-mail de l\'entreprise connectée.")</script>';
+            }
+        } else {
+            echo '<script>alert("Adresse e-mail de l\'entreprise non trouvée dans la base de données.")</script>';
+        }
+    } catch (PDOException $e) {
+        echo '<script>alert("Erreur de connexion à la base de données : '.$e->getMessage().'")</script>';
+    }
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test d'envoi d'e-mail</title>
-</head>
-
-<body>
-    <h1>Test d'envoi d'e-mail</h1>
-    <form method="post" action="">
-        <button type="submit" name="send">Envoyer l'e-mail</button>
-    </form>
-</body>
-
-</html>

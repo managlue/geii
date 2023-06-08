@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -6,145 +5,152 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier votre offre d'alternance</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/styleformOffre.css">
- 
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <title>Modifier une offre</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="../css/ModifierOffre.css">
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2 id="heading">Modifier une offre</h2>
+                    <p>Remplissez tous les champs du formulaire pour passer à l'étape suivante</p>
 
-
-
-    <?php
-    if (!isset($_SESSION['id_entreprise'])) {
-        header("location:/geii/view/index.php");
-        exit();
-    }
-    include_once 'header.php'
-    ?>
-
-
-
-    <div class="container">
-        <h1>Modifier votre offre d'alternance</h1>
-
-        <form class="form-example" action="ModifierOffreBD.php" method="post">
-            <?php
-            echo "<div class='input-group mb-3'>\n";
-            echo "<select name='id' id='id' class='form-select'>\n";
-            echo "<option selected disabled>Vos offres</option>\n";
-
-            try {
-                $host = "localhost";
-                $dbname = "id20742082_geii";
-                $user = "root";
-                $pass = "";
-
-                $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                $stmt = $conn->prepare("SELECT id_offre, titre_offre FROM offre_alternance WHERE id_entreprise = :id_entreprise");
-                $stmt->bindParam(':id_entreprise', $_SESSION['id_entreprise']);
-                $stmt->execute();
-
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $selected = '';
-
-                    // Vérification si l'identifiant de l'offre correspond à celui passé en paramètre
-                    if (isset($_GET['id'])  == $row['id_offre']) {
-                        $selected = 'selected';
-                    }
-
-                    echo "<option value='" . $row['id_offre'] . "' $selected>" . $row['titre_offre'] . "</option>\n";
-                }
-
-                $conn = null;
-            } catch (PDOException $e) {
-                echo "Erreur de connexion à la base de données : " . $e->getMessage();
-            }
-
-            echo "</select>\n";
-            echo "</div>\n";
-            ?>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="titre">Titre du poste :</label>
-                        <input class="form-control" id="titre" name="titre" type="text" placeholder="Entrez le titre du poste" required>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="lieu">Lieu :</label>
-                        <input class="form-control" id="lieu" name="lieu" type="text" placeholder="Entrez le lieu" required>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="contrat">Type de contrat :</label>
-                        <select class="form-control" id="contrat" name="contrat" required>
-                            <option value="">-- Sélectionner un type de contrat --</option>
-                            <option value="Alternance">Alternance</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="date_limite">Date limite de candidature :</label>
-                        <input class="form-control" id="date_limite" name="date_limite" type="date" required>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="description">Description du poste :</label>
-                        <textarea id="description" name="description" class="form-control" rows="5" placeholder="Entrez la description du poste" required></textarea>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="competences">Compétences requises :</label>
-                        <input class="form-control" id="competences" name="competences" type="text" placeholder="Entrez les compétences requises" required>
-                    </div>
-                </div>
-
-
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="remuneration">Rémunération :</label>
-                        <input class="form-control" id="remuneration" name="remuneration" type="text" placeholder="Entrez la rémunération" required>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="postuler">Comment postuler :</label>
-                        <textarea id="postuler" name="postuler" class="form-control" rows="5" placeholder="Indiquez comment postuler à l'offre" required></textarea>
-                    </div>
-                </div>
-
-
-
-                <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Modifier</button>
+                    <form id="msform" action="ModifierOffreBD.php?id=<?php echo $_GET['id']?>" method="post" enctype="multipart/form-data">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                        <li class="active" id="company"><strong>Entreprise</strong></li>
+                            <li id="offre"><strong>Offre</strong></li>
+                            <li id="information"><strong>Information offre</strong></li>
+                            <li id="logo"><strong>Logo</strong></li>
+                        </ul>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <br>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Information de l'entreprise :</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Étape 1 - 4</h2>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description_entr ">Description de l'entreprise :</label>
+                                    <textarea id="description_entr " name="description_entr" class="form-control" rows="5"
+                                        placeholder="Entrez la description de l'entreprise" ></textarea>
+                                </div>
+                            </div>
+                            <input type="button" name="next" class="next action-button" value="Suivant" />
+                        </fieldset>
+                        <!-- fieldsets -->
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Informations du poste :</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Étape 2 - 4</h2>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="titre">Titre du poste :</label>
+                                    <input class="form-control" id="titre" name="titre" type="text"
+                                        placeholder="Entrez le titre du poste">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lieu">Lieu :</label>
+                                    <input class="form-control" id="lieu" name="lieu" type="text"
+                                        placeholder="Entrez le lieu" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="contrat">Type de contrat :</label>
+                                    <select class="form-control" id="contrat" name="contrat">
+                                        <option value="">-- Sélectionnez un type de contrat --</option>
+                                        <option value="Alternance">Alternance</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date_limite">Date limite de candidature :</label>
+                                    <input class="form-control" id="date_limite" name="date_limite" type="date">
+                                </div>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                value="Précédent" />
+                            <input type="button" name="next" class="next action-button" value="Suivant" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Information du poste :</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Étape 3 - 4</h2>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description du poste :</label>
+                                    <textarea id="description" name="description" class="form-control" rows="5"
+                                        placeholder="Entrez la description du poste" ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="competences">Compétences requises :</label>
+                                    <textarea id="competences" name="competences" class="form-control" rows="5"
+                                        placeholder="Entrez les compétences requises" ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="remuneration">Rémunération :</label>
+                                    <input class="form-control" id="remuneration" name="remuneration" type="text"
+                                        placeholder="Entrez la rémunération" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="postuler">Comment postuler :</label>
+                                    <textarea id="postuler" name="postuler" class="form-control" rows="5"
+                                        placeholder="Indiquez comment postuler à l'offre" ></textarea>
+                                </div>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                value="Précédent" />
+                            <input type="button" name="next" class="next action-button" value="Suivant" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Image :</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Étape 4 - 4</h2>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Logo :</label>
+                                    <input class="form-control-file" id="image" name="image" type="file"
+                                        accept=".jpg, .jpeg, .png">
+                                </div>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                value="Précédent" />
+                            <input type="submit" name="submit" class="submit action-button" value="Soumettre" />
+                        </fieldset>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-
-
-    <!-- Bootstrap Bundle avec Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../script/ModifierOffre.js"></script> 
 </body>
 
 </html>

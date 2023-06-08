@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_entreprise'])) {
     exit();
 }
 
-if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])) {
+if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])&& isset($_POST['sujet_projet_tut'])&& isset($_POST['datedebut_projet_tut'])&& isset($_POST['datefin_projet_tut'])) {
     if (!empty($_POST['id'])) {
         $id = $_POST['id'];
         $titre_projet_tut = $_POST['titre_projet_tut'];

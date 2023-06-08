@@ -23,7 +23,7 @@
                         <!-- progressbar -->
                         <ul id="progressbar">
                         <li class="active" id="company"><strong>Entreprise</strong></li>
-                            <li id="offre"><strong>Offre</strong></li>
+                            <li id="offre"><strong>Ajouter Offre</strong></li>
                             <li id="information"><strong>Information offre</strong></li>
                             <li id="logo"><strong>Logo</strong></li>
                         </ul>
@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">Visuel :</label>
+                                    <label for="image">Logo :</label>
                                     <input class="form-control-file" id="image" name="image" type="file"
                                         accept=".jpg, .jpeg, .png">
                                 </div>

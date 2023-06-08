@@ -37,7 +37,7 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
                 // Démarre la session pour l'utilisateur
                 $_SESSION['id_entreprise'] = $result['id_entreprise'];
                 $_SESSION['nom_entreprise'] = $result['nom_entreprise'];
-                var_dump($result['nom_entreprise']);
+                // var_dump($result['nom_entreprise']);
               
                 header("Location: /geii/view/AccueilEntreprise.php");
                 exit();

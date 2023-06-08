@@ -15,15 +15,17 @@
 
 
 <div class="form-section">
-			<!-- <form method="post" action="MotDePasseOublieeBD.php"> -->
+			<form method="post" action="MotDePasseOublieeBD.php"> 
 				<!-- login form -->
 				<div class="login-box">
-					<input type="email" class="email ele" id="email" name="email" placeholder="Saisissez votre adresse mail" required>
-					<button type="submit" href ="MotDePasseOublieeBD.php" class="clkbtn">Envoyer</button>
+					<input type="email" class="email ele" id="toEmail" name="toEmail" placeholder="Saisissez votre adresse mail" required>
+					<button type="submit" name="sendMailBtn" href ="MotDePasseOublieeBD.php" class="clkbtn">Envoyer</button>
 
 				</div>
 		
-		<!-- </form> -->
+		</form> 
+</div>
+</div>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 

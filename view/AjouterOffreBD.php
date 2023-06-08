@@ -41,23 +41,34 @@ if (
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-
-            $stmt = $conn->prepare("INSERT INTO offre_alternance (titre_offre, lieu, contrat, date_limite, sujet_offre, competences, remuneration, postuler, image, description_entr, id_entreprise) VALUES (:titre, :lieu, :contrat, :date_limite, :description, :competences, :remuneration, :postuler, :image, :description_entr, :id_entreprise)");
-
+            // Vérifier si une offre avec le même titre existe déjà
+            $stmt = $conn->prepare("SELECT * FROM offre_alternance WHERE titre_offre = :titre AND id_entreprise = :id_entreprise");
             $stmt->bindParam(':titre', $titre);
-            $stmt->bindParam(':lieu', $lieu);
-            $stmt->bindParam(':contrat', $contrat);
-            $stmt->bindParam(':date_limite', $date_limite);
-            $stmt->bindParam(':description', $description);
-            $stmt->bindParam(':competences', $competences);
-            $stmt->bindParam(':remuneration', $remuneration);
-            $stmt->bindParam(':postuler', $postuler);
-            $stmt->bindParam(':image', $file_Name);
-            $stmt->bindParam(':description_entr', $description_entr);
             $stmt->bindParam(':id_entreprise', $_SESSION['id_entreprise']);
-             
-
             $stmt->execute();
+            $existingOffer = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($existingOffer) {
+                // Une offre avec le même titre existe déjà
+                $message = "Une offre avec le même titre existe déjà.";
+            } else {
+                // Insérer une nouvelle offre
+                $stmt = $conn->prepare("INSERT INTO offre_alternance (titre_offre, lieu, contrat, date_limite, sujet_offre, competences, remuneration, postuler, image, description_entr, id_entreprise) VALUES (:titre, :lieu, :contrat, :date_limite, :description, :competences, :remuneration, :postuler, :image, :description_entr, :id_entreprise)");
+
+                $stmt->bindParam(':titre', $titre);
+                $stmt->bindParam(':lieu', $lieu);
+                $stmt->bindParam(':contrat', $contrat);
+                $stmt->bindParam(':date_limite', $date_limite);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':competences', $competences);
+                $stmt->bindParam(':remuneration', $remuneration);
+                $stmt->bindParam(':postuler', $postuler);
+                $stmt->bindParam(':image', $file_Name);
+                $stmt->bindParam(':description_entr', $description_entr);
+                $stmt->bindParam(':id_entreprise', $_SESSION['id_entreprise']);
+                 
+                $stmt->execute();
+            }
         } catch (PDOException $e) {
             $message = "Echec de l'insertion : " . $e->getMessage();
         }
