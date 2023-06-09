@@ -19,31 +19,31 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
+            <a href="notes.php" class="nav-link text-dark font-italic">
                 <i class="fa fa-star-half-o mr-3 text-primary fa-fw"></i>
                 Notes
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
+            <a href="support-cours.php" class="nav-link text-dark font-italic">
                 <i class="fa fa-book mr-3 text-primary fa-fw"></i>
                 Supports de cours
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
+            <a href="edt.php" class="nav-link text-dark font-italic">
                 <i class="fa fa-calendar mr-3 text-primary fa-fw" aria-hidden="true"></i>
-                Emploi du temps
+                Emploi du temps</a>
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
+            <a href="projets-tut.php" class="nav-link text-dark font-italic">
                 <i class="fa fa-laptop mr-3 text-primary fa-fw"></i>
                 Projets tutorés
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
+            <a href="offres-alt.php" class="nav-link text-dark font-italic">
                 <i class="fa fa-handshake-o mr-3 text-primary fa-fw"></i>
                 Offres d'alternances
             </a>
