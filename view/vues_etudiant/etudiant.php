@@ -31,6 +31,7 @@
     <body>
 
     <?php include '../header.php'; ?>
+    <?php include 'menu.php'; ?>
 
     <!-- Page content holder -->
     <div class="page-content p-5" id="content">
@@ -40,14 +41,7 @@
             <i id="icon" class="fa fa-angle-double-left fa-2x"></i>
         </button>
 
-        <!-- content -->
-
-        <?php include 'menu.php'; ?>
-
-        <!-- début du contenu de la page -->
-
         <?php
-        
             echo '<span class="fs-1">Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !</span>';
 
             // voir les dernières notes

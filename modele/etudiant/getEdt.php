@@ -41,7 +41,7 @@
         <img src="img/content/timetable.png" alt="">
     </div>
     <div class="table-responsive">
-        <table class="table table-bordered text-center">
+        <table class="table table-light table-bordered text-center">
             <thead>
                 <tr class="bg-light-gray">
 

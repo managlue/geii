@@ -15,7 +15,7 @@
     else {
 ?>
 
-<table class="table table-striped">
+<table class="table table-light table-striped">
     <thead>
         <tr>
             <th scope="col">Matiere</th>
