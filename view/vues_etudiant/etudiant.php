@@ -20,7 +20,7 @@
         <script src="../../script/etudiant/faviconSwap.js"></script>
         
         <!-- https://fontawesome.com/v4/icons/ -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="../../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- Autres CSS -->
         <link href="../../css/Etudiant_CSS/edt.css" rel="stylesheet">
@@ -36,9 +36,8 @@
     <div class="page-content p-5" id="content">
 
         <!-- Toggle button -->
-        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="toggleIcon()">
-            <!-- <small class="text-uppercase font-weight-bold">>></small> -->
-            <i id="icon" class="fas fa-angle-double-left"></i>
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" onclick="toggleIcon()">
+            <i id="icon" class="fa fa-angle-double-left fa-2x"></i>
         </button>
 
         <!-- content -->
@@ -48,7 +47,8 @@
         <!-- début du contenu de la page -->
 
         <?php
-            echo 'Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !';
+        
+            echo '<span class="fs-1">Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !</span>';
 
             // voir les dernières notes
             $limit = 1;
