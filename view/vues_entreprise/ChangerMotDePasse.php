@@ -57,7 +57,7 @@ try {
 <html>
 <head>
     <title>Formulaire de mise à jour du mot de passe</title>
-    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="../../css/Entreprise_CSS/style.css">  
 </head>
 <body>
     

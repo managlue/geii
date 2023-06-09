@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id_entreprise'])) {
-    header("location: /geii/view/AccueilEntreprise.php");
+    header("location: /geii/view/accueil.php");
     exit();
 }
 
@@ -16,12 +16,12 @@ if (
     $fin_projet_tut = $_POST['datefin_projet_tut'];
 
 
-    $directory = "../assets/img/";
+    $directory = "../../assets/img/";
     $file_Name = basename($_FILES["image_projet_tut"]["name"]);
     $file_Path = $directory . $file_Name;
     $file_Type = pathinfo($file_Path, PATHINFO_EXTENSION);
 
-    $pdf_directory = "../assets/pdf/";
+    $pdf_directory = "../../assets/pdf/";
     $pdf_file_Name = basename($_FILES["pdf_projet_tut"]["name"]);
     $pdf_file_Path = $pdf_directory . $pdf_file_Name;
     $pdf_file_Type = pathinfo($pdf_file_Path, PATHINFO_EXTENSION);
@@ -43,7 +43,8 @@ if (
              $existingStmt->execute();
  
              if ($existingStmt->rowCount() > 0) {
-                echo "<script>alert(\"Le projet a déjà été ajouté\");</script>";             } else {
+                echo "<script>alert(\"Le projet a déjà été ajouté\");</script>";             
+            } else {
 
             $stmt = $conn->prepare("INSERT INTO projet_tut (titre_projet_tut, sujet_projet_tut, datedebut_projet_tut,datefin_projet_tut, image_projet_tut, pdf_projet_tut, id_entreprise) VALUES (:titre_projet_tut, :sujet_projet_tut, :datedebut_projet_tut,:datefin_projet_tut, :image_projet_tut, :pdf_projet_tut, :id_entreprise)");
 
@@ -68,5 +69,4 @@ if (
 } else {
     $message = "Toutes les données doivent être renseignées";
 }
-header("location: /geii/view/AccueilEntreprise.php");
-?>
+header("location: /geii/view/vues_entreprise/AccueilEntreprise.php");

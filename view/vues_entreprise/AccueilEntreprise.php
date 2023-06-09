@@ -9,7 +9,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/StyleAEntreprise.css">
+    <link rel="stylesheet" type="text/css" href="../../css/Entreprise_CSS/StyleAEntreprise.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
@@ -22,8 +22,11 @@ session_start();
                 </button>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="AccueilEntreprise.php">Accueil</a>
+                        </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="accueil.php">Notre Formation</a>
+                        <a class="nav-link" href="../accueil.php">Notre Formation</a>
                         </li>
                         <li class="nav-item">
                         
@@ -80,8 +83,8 @@ session_start();
             <h1>Espace Entreprise</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
-                    <li class="breadcrumb-item"><a href="AccueilEnt.php">Espace entreprise</a></li>
+                    <li class="breadcrumb-item"><a href="AccueilEntreprise.php">Accueil</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="AccueilEnt.php">Espace entreprise</a></li> -->
                 </ol>
             </nav>
         </div>
@@ -122,7 +125,7 @@ if (isset($_SESSION['id_entreprise'])) {
         echo '<div class="col-xs-12 col-sm-4">';
         echo '<div class="card">';
         echo '<a class="img-card">';
-        $imageURL = '../assets/img/' . $row['image_projet_tut'];
+        $imageURL = '../../assets/img/' . $row['image_projet_tut'];
         echo '<img src="' . $imageURL . '" />';
         echo '</a>';
         echo '<div class="card-content">';
@@ -192,7 +195,7 @@ if (isset($_SESSION['id_entreprise'])) {
             echo '<div class="col-xs-12 col-sm-4">';
             echo '<div class="card">';
             echo '<a class="img-card">';
-            $imageURL = '../assets/img/' . $row['image'];
+            $imageURL = '../../assets/img/' . $row['image'];
             echo '<img src="' . $imageURL . '" />';
             echo '</a>';
             echo '<div class="card-content">';

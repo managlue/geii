@@ -9,7 +9,8 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/styleAccueilEntreprise.css">
+    <link rel="stylesheet" type="text/css" href="../../css/Entreprise_CSS/styleAccueilEntreprise.css">
+    
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
@@ -23,12 +24,19 @@ session_start();
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="accueil.php">Notre Formation</a>
+                            <a class="nav-link" href="../accueil.php">Notre Formation</a>
                         </li>
-
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="AccueilEnt.php">Espace Entreprise</a>
+                         
                         </li>
+                        <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  id="offreDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Se Connecter
+                                </a> -->
+                              
 
                             <?php
                         if (isset($_SESSION['id_entreprise'])) {
@@ -39,7 +47,7 @@ session_start();
                                     Offre Entreprise
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="offreDropdown">
-                                    <li><a class="dropdown-item" href="AjouterOffre.php">Publier une offre</a></li>
+                                <li><a class="dropdown-item" href="AjouterOffre.php">Publier une offre</a></li>
                                     <li><a class="dropdown-item" href="AfficherOffreBD.php">Afficher les offres</a></li>
                                 </ul>
                             </li>
@@ -75,28 +83,27 @@ session_start();
                                 $menuConnexion .= '<ul class="dropdown-menu" aria-labelledby="menuConnexionDropdown">';
                                 
                                 $menuConnexion .= '<li><a class="dropdown-item" href="#1">Elèves / Enseignant</a></li>';
-                                $menuConnexion .= '<li><a class="dropdown-item"href="co.php">Enseignant</a></li>';
+                                $menuConnexion .= '<li><a class="dropdown-item"href="co.php">Entreprise</a></li>';
+                                $menuConnexion .= ' <li><a class="dropdown-item" href="#">Personnel</a></li>';
                                 $menuConnexion .= '</ul>';
                                 $menuConnexion .= '</li>';
-                                echo ' <li class="nav-item">';
-                                echo '<a class="nav-link" href="#">Personnel</a>';
-                                echo '</li>';
                             // <li class='nav-item'><a class='nav-link' href='co.php'>Connexion</a></li>\n";
                         }
                         echo $menuConnexion;
                         ?>
+                         
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="hero">
             <h1>Espace Entreprise</h1>
-            <nav aria-label="breadcrumb">
+            <!-- <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
                     <li class="breadcrumb-item"><a href="AccueilEnt.php">Espace entreprise</a></li>
                 </ol>
-            </nav>
+            </nav> -->
         </div>
 
         <div class="container">

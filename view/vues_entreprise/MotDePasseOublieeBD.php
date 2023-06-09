@@ -26,7 +26,7 @@ if (isset($_POST['sendMailBtn'])) {
                 // L'adresse e-mail saisie correspond à l'adresse e-mail de l'entreprise connectée, on peut envoyer l'e-mail
                 $fromEmail = "moussisidahmed0@gmail.com";
                 $message = "Veuillez trouver ci-joint le lien de réinitialisation du mot de passe : 
-                <a href='http://projets/geii/view/ChangerMotDePasse.php?id=$entreprise_id'>http://projets/geii/view/ChangerMotDePasse.php?id=$entreprise_id</a>";
+                <a href='http://projets/geii/view/vues_entreprise/ChangerMotDePasse.php?id=$entreprise_id'>http://projets/geii/view/vues_entreprise/ChangerMotDePasse.php?id=$entreprise_id</a>";
 
                 $to = $toEmail;
                 $subject = "Réinitialisation du mot de passe";

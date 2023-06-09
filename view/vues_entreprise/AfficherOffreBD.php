@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-  <link rel="stylesheet" href="../css/AfficherOffre.css">
+  <link rel="stylesheet" href="../../css/Entreprise_CSS/AfficherOffre.css">
 
 </head>
 
@@ -33,7 +33,8 @@
         echo '<div class="accordion" id="accordionExample">';
         echo '<div class="card  border-bottom">';
         echo '<div class="card-header" id="headingOne">';
-        $imageURL = '../assets/img/' . $row['image'];
+        $imageURL = '../../assets/img/' . $row['image'];
+        
         echo "<td><img src='" . $imageURL . "' height='100' width='100'></td>\n";
         echo ' <h4 class="card-subtitle text-muted d-inline-block">' . $row['nom_entreprise'] . '</h4>';
         echo ' <h5 class="mb-0">';
@@ -156,7 +157,7 @@
   ?>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="../script/AfficherOffre.js"></script>
+  <script src="../../script/AfficherOffre.js"></script>
 </body>
 
 </html>

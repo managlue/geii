@@ -38,7 +38,7 @@ if (isset($_POST['NomEntreprise']) && isset($_POST['email_inscription']) && isse
             $_SESSION['nom_entreprise'] = $nom;
 
             // Rediriger l'utilisateur vers la page d'accueil
-            header("location:/geii/view/AccueilEntreprise.php");
+            header("location:/geii/view/vues_entreprise/AccueilEntreprise.php");
             exit();
         } catch (PDOException $e) {
             $message = "Echec de l'insertion : " . $e->getMessage();

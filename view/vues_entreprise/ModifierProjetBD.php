@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id_entreprise'])) {
-    header("location: /geii/view/AccueilEnt.php");
+    header("location: /geii/view/accueil.php");
     exit();
 }
 
@@ -14,7 +14,7 @@ if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])&& isset($_POST['suj
         $debut_projet_tut = $_POST['datedebut_projet_tut'];
         $fin_projet_tut = $_POST['datefin_projet_tut'];
 
-        $pdf_directory = "../assets/pdf/";
+        $pdf_directory = "../../assets/pdf/";
         $pdf_file_Name = basename($_FILES["pdf_projet_tut"]["name"]);
         $pdf_file_Path = $pdf_directory . $pdf_file_Name;
         $pdf_file_Type = pathinfo($pdf_file_Path, PATHINFO_EXTENSION);
@@ -93,5 +93,5 @@ if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])&& isset($_POST['suj
     $message = "Toutes les données doivent être renseignées.";
 }
 
-header("location: /geii/view/AfficherProjet.php");
+header("location: /geii/view/vues_entreprise/AfficherProjet.php");
 ?>

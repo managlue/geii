@@ -8,7 +8,7 @@ session_start();
 
 <?php
 if (!isset($_SESSION['id_entreprise'])) {
-    header("location: /geii/view/index.php");
+    header("location: /geii/view/accueil.php");
     exit();
 }
 
@@ -25,7 +25,7 @@ if (
     $postuler = $_POST['postuler'];
     $description_entr = $_POST['description_entr'];
 
-    $directory = "../assets/img/";
+    $directory = "../../assets/img/";
     $file_Name = basename($_FILES["image"]["name"]);
     $file_Path = $directory . $file_Name;
     $file_Type = pathinfo($file_Path, PATHINFO_EXTENSION);
@@ -80,7 +80,7 @@ if (
 } else {
     $message = "Toutes les données doivent être renseignées";
 }
-header("location: /geii/view/AccueilEntreprise.php");
+header("location: /geii/view/vues_entreprise/AccueilEntreprise.php");
 ?>
 
 </body>

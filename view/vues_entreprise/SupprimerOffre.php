@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
        
     }
 
-    header("location: /geii/view/AfficherOffreBD.php");
+    header("location: /geii/view/vues_entreprise/AfficherOffreBD.php");
     exit();
 }
 ?>

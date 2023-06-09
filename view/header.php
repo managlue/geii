@@ -12,18 +12,17 @@
                 <a class="nav-link" href="#">Notre formation</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="AccueilEnt.php">Espace Entreprise</a>
+                <a class="nav-link" href="vues_entreprise/AccueilEnt.php">Espace Entreprise</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="menuConnexionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Se connecter </a>
                   <ul class="dropdown-menu" aria-labelledby="menuConnexionDropdown">
                     <li><a class="dropdown-item" href="../modele/login.php">Elèves / Enseignant</a></li>
-                    <li><a class="dropdown-item" href="co.php">Entreprise</a></li>
+                    <li><a class="dropdown-item" href="vues_entreprise/co.php">Entreprise</a></li>
+                    <li><a class="dropdown-item" href="#">Personnel</a></li>
                   </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Personnel</a>
-              </li>
+              
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../css/AfficherProjet.css">
+  <link rel="stylesheet" href="../../css/Entreprise_CSS/AfficherProjet.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
         $isActive = ($numProjet == 1) ? 'active' : ''; // Vérifier si c'est le premier projet pour la classe "active"
         echo '<div class="carousel-item ' . $isActive . '">';
         echo '<div class="card">';
-        $imageURL = '../assets/img/' . $row['image_projet_tut'];
+        $imageURL = '../../assets/img/' . $row['image_projet_tut'];
         echo '<div class="img-wrapper"><img src="' . $imageURL . '" class="d-block w-100" alt="..."></div>';
         echo '<div class="card-body">';
         echo '<h5 class="card-title">'; 
@@ -55,7 +55,7 @@
         $dateFin = date('d/m/Y', strtotime($row['datefin_projet_tut']));
         echo '<span class="badge badge-secondary bg-white text-dark border border-dark">Date de début : ' . $dateDebut . '</span>';
         echo '<span class="badge badge-secondary bg-white text-dark border border-dark">Date de fin : ' . $dateFin . '</span>';
-        $pdfURL = '../assets/pdf/' . $row['pdf_projet_tut'];
+        $pdfURL = '../../assets/pdf/' . $row['pdf_projet_tut'];
         echo '<br />';
         echo '<a href="' . $pdfURL . '" target="_blank"" class="btn btn-primary">En savoir plus </a>';
         
@@ -88,7 +88,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="../script/AfficherProjet.js"></script>
+  <script src="../../script/AfficherProjet.js"></script>
 </body>
 
 </html>

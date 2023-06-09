@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id_entreprise'])) {
-    header("location: /geii/view/AccueilEnt.php");
+    header("location: /geii/view/accueil.php");
     exit();
 }
 
@@ -117,5 +117,5 @@ if (isset($_GET['id']) && isset($_POST['titre'])&& isset($_POST['lieu'])&& isset
     $message = "Toutes les données doivent être renseignées.";
 }
 
-header("location: /geii/view/AfficherOffreBD.php");
+header("location: /geii/view/vues_entreprise/AfficherOffreBD.php");
 ?>

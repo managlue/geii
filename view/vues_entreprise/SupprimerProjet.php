@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
        
     }
 
-    header("location: /geii/view/AfficherProjet.php");
+    header("location: /geii/view/vues_entreprise/AfficherProjet.php");
     exit();
 }
 ?>

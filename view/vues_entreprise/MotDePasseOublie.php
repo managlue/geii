@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>Réinitialisation de mot de passe</title>
-	<link rel="stylesheet" href="style.css">  
+	<link rel="stylesheet" href="../../css/Entreprise_CSS/style.css">  
 </head>
 
 
