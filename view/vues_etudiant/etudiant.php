@@ -17,11 +17,14 @@
         <!-- Autres JS -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="../../script/etudiant/boutonMenu.js"></script>
+        <script src="../../script/etudiant/faviconSwap.js"></script>
+        
+        <!-- https://fontawesome.com/v4/icons/ -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
         <!-- Autres CSS -->
         <link href="../../css/Etudiant_CSS/edt.css" rel="stylesheet">
         <link href="../../css/Etudiant_CSS/menu.css" rel="stylesheet">
-
 
     </head>
 
@@ -33,9 +36,9 @@
     <div class="page-content p-5" id="content">
 
         <!-- Toggle button -->
-        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4">
-            <i class="fa fa-bars mr-2"></i>
-            <small class="text-uppercase font-weight-bold">Toggle</small>
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" onclick="toggleIcon()">
+            <!-- <small class="text-uppercase font-weight-bold">>></small> -->
+            <i id="icon" class="fas fa-angle-double-left"></i>
         </button>
 
         <!-- content -->
