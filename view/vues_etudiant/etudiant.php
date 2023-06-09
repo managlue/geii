@@ -14,12 +14,13 @@
         <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="../../bootstrap/js/bootstrap.min.js"></script>
 
+        <!-- Autres JS -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../../script/etudiant/boutonMenu.js"></script>
+
         <!-- Autres CSS -->
         <link href="../../css/Etudiant_CSS/edt.css" rel="stylesheet">
         <link href="../../css/Etudiant_CSS/menu.css" rel="stylesheet">
-
-        <!-- Autres JS -->
-        <script src="../../script/etudiant/boutonMenu.js"></script>
 
 
     </head>
