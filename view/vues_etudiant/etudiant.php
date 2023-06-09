@@ -31,32 +31,34 @@
     <body>
 
     <?php include '../header.php'; ?>
-    <?php include 'menu.php'; ?>
 
-    <!-- Page content holder -->
-    <div class="page-content p-5" id="content">
+    <div class="container-fluid">
 
-        <!-- Toggle button -->
-        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" onclick="toggleIcon()">
-            <i id="icon" class="fa fa-angle-double-left fa-2x"></i>
-        </button>
+        <?php include 'menu.php'; ?>
+        <div class="page-content p-5 mt-3 mb-3" id="content">
 
-        <?php
-            echo '<span class="fs-1">Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !</span>';
+            <!-- Toggle button -->
+            <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" onclick="toggleIcon()">
+                <i id="icon" class="fa fa-angle-double-left fa-2x"></i>
+            </button>
 
-            // voir les dernières notes
-            $limit = 1;
-            include '../../modele/etudiant/getMarks.php';
+            <?php
+                echo '<span class="fs-1">Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !</span>';
 
-            // voir l'emplois du temps
-            $today = true;
-            include '../../modele/etudiant/getEdt.php';
+                // voir les dernières notes
+                $limit = 1;
+                include '../../modele/etudiant/getMarks.php';
 
-            // voir les supports de cours
-            // include '../modele/etudiant/.php';
-        ?>
+                // voir l'emplois du temps
+                $today = true;
+                include '../../modele/etudiant/getEdt.php';
 
-        <!-- fin du contenu de la page -->
+                // voir les supports de cours
+                // include '../modele/etudiant/.php';
+            ?>
+
+            <!-- fin du contenu de la page -->
+        </div>
     </div>
 
     <?php include '../footer.php'; ?>
