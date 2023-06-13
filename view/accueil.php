@@ -1,194 +1,82 @@
 <!DOCTYPE html>
-
 <html lang="FR">
 
-    <head>
+<head>
+    <meta charset="utf-8">
+    <title>Site web GEII</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+    <link href="../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../bootstrap-5.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../css/Footer/style.css">
 
-        <meta charset="utf-8">
+    <style>
+        p {
+            font-family: 'Poppins', sans-serif;
+        }
 
-        <title>Site web GEII</title>
+        .carousel-inner {
+            position: relative;
+        }
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.45);
+            /* Couleur de fond légèrement noire */
+            padding: 20px;
+            color: #fff;
+        }
+    </style>
 
-        <!-- https://getbootstrap.com/docs/5.3/getting-started/introduction/ -->
-        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/style.css">
+</head>
 
-    </head>
+<body>
 
-    <body>
-
-    <div class="area">
-
-        <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <ul class="carousel-indicators">
+            <span data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></span>
+            <span data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></span>
+            <span data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></span>
         </ul>
 
-        <section>
 
-        <?php include 'header.php'; ?>
-
-        <div class="box">
-        
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-            <div class="content">
-
-            <h1> Bienvenue sur le site GEII </h1>
-
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../assets/slider/1.png" class="d-block" alt="Image 1">
+                <div class="carousel-caption">
+                    <h3>Bienvenue sur le site du Département GEII ! 🏫 </h3>
+                    <p>Formations, Cursus, Lieux & autres informations à disposition !</p>
+                </div>
             </div>
-            
+            <div class="carousel-item">
+                <img src="../assets/slider/2.png" class="d-block" alt="Image 2">
+                <div class="carousel-caption">
+                    <h3>Découvrez nos Formations ! 🌐 </h3>
+                    <p>DUT, Licences & Formations complètes </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/slider/3.png" class="d-block" alt="Image 3">
+                <div class="carousel-caption">
+                    <h3>Programme 📚</h3>
+                    <p>Cursus, Cours & bloc de compétences en détails </p>
+                </div>
+            </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Suivant</span>
+        </a>
+    </div>
 
-        </section>
-
-        <section>
-
-        <div class="container reveal fade-bottom">
-
-            <h1 class="text-center"> Présenation de la formation </h1>
-
-            <div class="row">
-
-            <img src="../images/formation.svg" class="img-fluid col-2">
-
-            <p class="section1 col mt-5">
-
-                L'espace étudiant vous permet d’accéder à toutes les informations utiles pour votre parcours universitaire. 
-                Vous pouvez y consulter vos notes, la documentation pédagogique, l’emploi du temps de vos cours, les offres d’emploi et de stage des entreprises partenaires, ainsi que les projets proposés par les enseignants. 
-                L’espace étudiant est également un lieu d’échange et de communication avec vos camarades, vos professeurs et les services administratifs.
-                
-            </p>
-
-            </div>
-
-            <div class="row">
-
-            <a class="btn btn-geii col-5 mt-3 mx-auto" href="#">
-                En savoir plus
-            </a>
-
-            </div>
-                    
-        </div>
-
-        </section>
-
-        <section>
-
-            <div class="container reveal fade-bottom">
-
-            <h1 class="text-center"> L'espace étudiant </h1>
-
-            <div class="row">
-
-                <img src="../images/edutiant.svg" class="img-fluid col-1">
-
-                <p class="section1 col mt-5">
-    
-                L'espace étudiant vous permet d’accéder à toutes les informations utiles pour votre parcours universitaire. 
-                Vous pouvez y consulter vos notes, la documentation pédagogique, l’emploi du temps de vos cours, les offres d’emploi et de stage des entreprises partenaires, ainsi que les projets proposés par les enseignants. 
-                L’espace étudiant est également un lieu d’échange et de communication avec vos camarades, vos professeurs et les services administratifs.
-                    
-                </p>
-
-            </div>
-
-            <div class="row">
-
-                <a class="btn btn-geii col-5 mt-3 mx-auto" href="#">
-                En savoir plus
-                </a>
-
-            </div>
-                        
-            </div>
-
-        </section>
-
-        <section>
-
-        <div class="container reveal fade-bottom">
-
-            <h1 class="text-center"> L'espace entreprise </h1>
-
-            <div class="row">
-
-            <img src="../images/entreprise.svg" class="img-fluid col-2">
-
-            <p class="section1 col mt-5">
-
-                L’espace entreprise vous permet de découvrir la formation proposée par l’université et de recruter des étudiants en alternance ou en projet tutoré. 
-                Vous pouvez y consulter la présentation du cursus, les compétences visées, les modalités d’évaluation et les débouchés professionnels. 
-                Vous pouvez également y ajouter une offre d’alternance ou de projet tutoré, en précisant le profil recherché, les missions confiées, la durée et la rémunération. 
-                L’espace entreprise est aussi un moyen de contacter directement les responsables pédagogiques et les étudiants intéressés par votre offre.
-                
-            </p>
-
-            </div>
-
-            <div class="row">
-
-            <a class="btn btn-geii col-5 mt-3 mx-auto" href="#">
-                En savoir plus
-            </a>
-
-            </div>
-                    
-        </div>
-
-        </section>
-
-        <section>
-
-        <div class="container reveal fade-bottom">
-
-            <h1 class="text-center"> L'espace personnel </h1>
-
-            <div class="row">
-
-            <img src="../images/personnel.svg" class="img-fluid col-2">
-
-            <p class="section1 col mt-5">
-
-                L'espace étudiant vous permet d’accéder à toutes les informations utiles pour votre parcours universitaire. 
-                Vous pouvez y consulter vos notes, la documentation pédagogique, l’emploi du temps de vos cours, les offres d’emploi et de stage des entreprises partenaires, ainsi que les projets proposés par les enseignants. 
-                L’espace étudiant est également un lieu d’échange et de communication avec vos camarades, vos professeurs et les services administratifs.
-                
-            </p>
-
-            </div>
-
-            <div class="row">
-
-            <a class="btn btn-geii col-5 mt-3 mx-auto" href="#">
-                En savoir plus
-            </a>
-
-            </div>
-                    
-        </div>
-
-        </section>
-
-  </div>
-
-  <script src="bootstrap.min.js"></script>
-  <script src="../js/script.js"></script>
-
-    <?php include 'footer.php'; ?>
+    <script src="../../bootstrap-5.3/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
