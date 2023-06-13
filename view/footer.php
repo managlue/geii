@@ -27,7 +27,7 @@
                         <h3>Contact</h3>
                         <p><i class="fas fa-map-marker-alt"></i> 25 cours Monseigneur Roméro, 91000 Évry</p>
                         <p><i class="fas fa-phone"></i> 01 69 47 72 20</p>
-                        <p><i class="fas fa-envelope"></i> Email: <a
+                        <p><i class="fas fa-envelope"></i> Email : <a
                                 href="mailto:secretariat-geii@iut.univ-evry.fr">secretariat-geii@iut.univ-evry.fr</a>
                         </p>
                     </div>
@@ -59,8 +59,8 @@
                         &copy; 2023 IUT d’Évry Val d’Essonne
                     </div>
                     <div class="col-md-6 footer-social">
-                        <a href="https://www.facebook.com/iutevry"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/Alumnieve"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/iutevry" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/Alumnieve" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
