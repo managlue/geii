@@ -6,24 +6,21 @@
   <title>Projets tutorés</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="../../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../../css/Entreprise_CSS/AfficherProjet.css">
 </head>
 
 <body>
   <?php
+
+include '../../modele/connexionBd.php';
+
   if (isset($_SESSION['id_entreprise'])) {
     try {
-      $host = "localhost";
-      $dbname = "id20742082_geii";
-      $user = "root";
-      $pass = "";
+     
 
-      $conn = new PDO("mysql:host=$host;dbname=$dbname", 'root', '');
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      $stmt = $conn->prepare("SELECT * FROM projet_tut JOIN entreprise ON projet_tut.id_entreprise = entreprise.id_entreprise WHERE projet_tut.id_entreprise = :id_entreprise");
+      $stmt = $pdo->prepare("SELECT * FROM projet_tut JOIN entreprise ON projet_tut.id_entreprise = entreprise.id_entreprise WHERE projet_tut.id_entreprise = :id_entreprise");
       $stmt->bindParam(':id_entreprise', $_SESSION['id_entreprise']);
       $stmt->execute();
 
@@ -39,15 +36,15 @@
         $imageURL = '../../assets/img/' . $row['image_projet_tut'];
         echo '<div class="img-wrapper"><img src="' . $imageURL . '" class="d-block w-100" alt="..."></div>';
         echo '<div class="card-body">';
-        echo '<h5 class="card-title">'; 
+        echo '<h5 class="card-title">';
         echo   $row['titre_projet_tut'];
         echo '<a href="ModifierProjet.php?id=' . $row['id_projet_tut'] . '"><i class="fas fa-edit" style="color: black; padding-left: 25px;"></i></a>';
         echo '<a href="SupprimerProjet.php?id=' . $row['id_projet_tut'] . '"><i class="fas fa-trash" style="color: black;padding-left: 5px;"></i></a>';
         echo '</h5>';
         echo '<div class="ml-2">';
-       
+
         echo '</div>';
-        
+
         $description = $row['sujet_projet_tut'];
         $partie_description = substr($description, 0, 100);
         echo '<p class="card-text">' .  $partie_description . '</p>';
@@ -58,8 +55,8 @@
         $pdfURL = '../../assets/pdf/' . $row['pdf_projet_tut'];
         echo '<br />';
         echo '<a href="' . $pdfURL . '" target="_blank"" class="btn btn-primary">En savoir plus </a>';
-        
-       
+
+
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -82,12 +79,11 @@
       $message = "Echec de la récupération des éléments : " . $e->getMessage();
     }
 
-    $conn = null;
   }
   ?>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="../../bootstrap-5.3/js/bootstrap.min.js"></script>
   <script src="../../script/AfficherProjet.js"></script>
 </body>
 

@@ -1,19 +1,14 @@
 <?php
+
+include '../../modele/connexionBd.php';
+
 if (isset($_POST['sendMailBtn'])) {
     $toEmail = $_POST['toEmail'];
 
-    // Connexion à la base de données en utilisant PDO
-    $host = "localhost";
-    $dbname = "id20742082_geii";
-    $user = "root";
-    $pass = "";
-
     try {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+       
         // Requête pour récupérer l'adresse e-mail de l'entreprise connectée
-        $stmt = $conn->prepare("SELECT id_entreprise, mail_entreprise FROM entreprise WHERE mail_entreprise = :toEmail");
+        $stmt = $pdo->prepare("SELECT id_entreprise, mail_entreprise FROM entreprise WHERE mail_entreprise = :toEmail");
         $stmt->bindParam(':toEmail', $toEmail);
         $stmt->execute();
         $entreprise = $stmt->fetch();

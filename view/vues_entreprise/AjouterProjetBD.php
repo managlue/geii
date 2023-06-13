@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include '../../modele/connexionBd.php';
+
 if (!isset($_SESSION['id_entreprise'])) {
     header("location: /geii/view/accueil.php");
     exit();
@@ -28,16 +30,10 @@ if (
 
     if (move_uploaded_file($_FILES["image_projet_tut"]["tmp_name"], $file_Path) && move_uploaded_file($_FILES["pdf_projet_tut"]["tmp_name"], $pdf_file_Path)) {
         try {
-            $host = "localhost";
-            $dbname = "id20742082_geii";
-            $user = "root";
-            $pass = "";
-
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
 
              // Vérifier si le projet existe déjà
-             $existingStmt = $conn->prepare("SELECT * FROM projet_tut WHERE titre_projet_tut = :titre_projet_tut AND id_entreprise = :id_entreprise");
+             $existingStmt = $pdo->prepare("SELECT * FROM projet_tut WHERE titre_projet_tut = :titre_projet_tut AND id_entreprise = :id_entreprise");
              $existingStmt->bindParam(':titre_projet_tut',  $titre_projet_tut);
              $existingStmt->bindParam(':id_entreprise', $_SESSION['id_entreprise']);
              $existingStmt->execute();
@@ -46,7 +42,7 @@ if (
                 echo "<script>alert(\"Le projet a déjà été ajouté\");</script>";             
             } else {
 
-            $stmt = $conn->prepare("INSERT INTO projet_tut (titre_projet_tut, sujet_projet_tut, datedebut_projet_tut,datefin_projet_tut, image_projet_tut, pdf_projet_tut, id_entreprise) VALUES (:titre_projet_tut, :sujet_projet_tut, :datedebut_projet_tut,:datefin_projet_tut, :image_projet_tut, :pdf_projet_tut, :id_entreprise)");
+            $stmt = $pdo->prepare("INSERT INTO projet_tut (titre_projet_tut, sujet_projet_tut, datedebut_projet_tut,datefin_projet_tut, image_projet_tut, pdf_projet_tut, id_entreprise) VALUES (:titre_projet_tut, :sujet_projet_tut, :datedebut_projet_tut,:datefin_projet_tut, :image_projet_tut, :pdf_projet_tut, :id_entreprise)");
 
             $stmt->bindParam(':titre_projet_tut', $titre_projet_tut);
             $stmt->bindParam(':sujet_projet_tut', $sujet_projet_tut);
@@ -62,7 +58,6 @@ if (
             $message = "Echec de l'insertion : " . $e->getMessage();
         }
 
-        $conn = null;
     } else {
         $message = "Erreur lors du téléchargement des fichiers.";
     }

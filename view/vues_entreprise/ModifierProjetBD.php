@@ -1,5 +1,8 @@
 <?php
+
 session_start();
+
+include '../../modele/connexionBd.php';
 
 if (!isset($_SESSION['id_entreprise'])) {
     header("location: /geii/view/accueil.php");
@@ -20,14 +23,7 @@ if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])&& isset($_POST['suj
         $pdf_file_Type = pathinfo($pdf_file_Path, PATHINFO_EXTENSION);
 
         try {
-            $host = "localhost";
-            $dbname = "id20742082_geii";
-            $user = "root";
-            $pass = "";
-
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+      
             $updates = [];
             $bindParams = [];
 
@@ -67,7 +63,7 @@ if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])&& isset($_POST['suj
             $bindParams[] = [':id', $id];
             $bindParams[] = [':id_entreprise', $_SESSION['id_entreprise']];
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $pdo->prepare($sql);
 
               // foreach pour les bindparam
             foreach ($bindParams as $bindParam) {
@@ -77,15 +73,10 @@ if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])&& isset($_POST['suj
               // execute
             $stmt->execute();
 
-           
-
-      
-      
         } catch (PDOException $e) {
             $message = "Échec de la mise à jour : " . $e->getMessage();
         }
 
-        $conn = null;
     } else {
         $message = "Toutes les données doivent être renseignées.";
     }
@@ -94,4 +85,3 @@ if (isset($_POST['id']) && isset($_POST['titre_projet_tut'])&& isset($_POST['suj
 }
 
 header("location: /geii/view/vues_entreprise/AfficherProjet.php");
-?>

@@ -31,9 +31,7 @@
 
 <body>
 
-
-	
-	<div class="container">
+<div class="container">
 
 		<!-- login or signup form -->
 		<div class="slider"></div>

@@ -9,12 +9,10 @@
 	<link rel="stylesheet" href="../../css/Entreprise_CSS/style.css">  
 </head>
 
-
 <body>
-<div class="container">
 
-
-<div class="form-section">
+	<div class="container">
+		<div class="form-section">
 			<form method="post" action="MotDePasseOublieeBD.php"> 
 				<!-- login form -->
 				<div class="login-box">
@@ -22,10 +20,9 @@
 					<button type="submit" name="sendMailBtn" href ="MotDePasseOublieeBD.php" class="clkbtn">Envoyer</button>
 
 				</div>
-		
-		</form> 
-</div>
-</div>
+			</form> 
+		</div>
+	</div>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 

@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+include '../../modele/connexionBd.php';
+
 if (!isset($_SESSION['id_entreprise'])) {
     header("location: /geii/view/accueil.php");
     exit();
 }
 
-if (isset($_GET['id']) && isset($_POST['titre'])&& isset($_POST['lieu'])&& isset($_POST['contrat'])&& isset($_POST['date_limite'])&& isset($_POST['description']) && isset($_POST['competences'])  && isset($_POST['remuneration']) && isset($_POST['postuler']) && isset($_POST['description_entr']) ) {
+if (isset($_GET['id']) && isset($_POST['titre']) && isset($_POST['lieu']) && isset($_POST['contrat']) && isset($_POST['date_limite']) && isset($_POST['description']) && isset($_POST['competences'])  && isset($_POST['remuneration']) && isset($_POST['postuler']) && isset($_POST['description_entr'])) {
     if (!empty($_GET['id'])) {
         $id = $_GET['id'];
         $titre = $_POST['titre'];
@@ -21,13 +23,7 @@ if (isset($_GET['id']) && isset($_POST['titre'])&& isset($_POST['lieu'])&& isset
 
 
         try {
-            $host = "localhost";
-            $dbname = "id20742082_geii";
-            $user = "root";
-            $pass = "";
 
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $updates = [];
             $bindParams = [];
@@ -87,29 +83,23 @@ if (isset($_GET['id']) && isset($_POST['titre'])&& isset($_POST['lieu'])&& isset
             }
 
             $sql .= " WHERE  id_offre  = :id AND id_entreprise = :id_entreprise";
-            
+
             $bindParams[] = [':id', $id];
             $bindParams[] = [':id_entreprise', $_SESSION['id_entreprise']];
 
-            $stmt = $conn->prepare($sql);
+            $stmt = $pdo->prepare($sql);
 
-              // foreach pour les bindparam
+            // foreach pour les bindparam
             foreach ($bindParams as $bindParam) {
                 $stmt->bindParam($bindParam[0], $bindParam[1]);
             }
 
-              // execute
+            // execute
             $stmt->execute();
-
-           
-
-      
-      
         } catch (PDOException $e) {
             $message = "Échec de la mise à jour : " . $e->getMessage();
         }
 
-        $conn = null;
     } else {
         $message = "Toutes les données doivent être renseignées.";
     }
@@ -118,4 +108,3 @@ if (isset($_GET['id']) && isset($_POST['titre'])&& isset($_POST['lieu'])&& isset
 }
 
 header("location: /geii/view/vues_entreprise/AfficherOffreBD.php");
-?>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/Entreprise_CSS/styleAccueilEntreprise.css">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
@@ -24,71 +24,69 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../accueil.php">Notre Formation</a>
                         </li>
-                       
+
                         <li class="nav-item">
                             <a class="nav-link" href="AccueilEnt.php">Espace Entreprise</a>
                         </li>
 
-<?php
-    if (isset($_SESSION['id_entreprise'])) {
-?>
+                        <?php
+                        if (isset($_SESSION['id_entreprise'])) {
+                        ?>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"  id="offreDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Offre Entreprise
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="offreDropdown">
-                            <li><a class="dropdown-item" href="AjouterOffre.php">Publier une offre</a></li>
-                                <li><a class="dropdown-item" href="AfficherOffreBD.php">Afficher les offres</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"  id="projetDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Projets Tutorés
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="projetDropdown">
-                                <li><a class="dropdown-item" href="AjouterProjet.php">Ajouter un projet</a></li>
-                                <li><a class="dropdown-item" href="AfficherProjet.php">Afficher les projets</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="offreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Offre Entreprise
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="offreDropdown">
+                                    <li><a class="dropdown-item" href="AjouterOffre.php">Publier une offre</a></li>
+                                    <li><a class="dropdown-item" href="AfficherOffreBD.php">Afficher les offres</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="projetDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Projets Tutorés
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="projetDropdown">
+                                    <li><a class="dropdown-item" href="AjouterProjet.php">Ajouter un projet</a></li>
+                                    <li><a class="dropdown-item" href="AfficherProjet.php">Afficher les projets</a></li>
+                                </ul>
+                            </li>
 
-<?php
-    }
+                        <?php
+                        }
 
-    if (isset($_SESSION['id_entreprise'])) {
-?>
+                        if (isset($_SESSION['id_entreprise'])) {
+                        ?>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="menuConnexionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo 'Bienvenue, ' . $_SESSION['nom_entreprise']; ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="menuConnexionDropdown">
-                                <li><a class="dropdown-item" href="deconnexion.php">Déconnexion</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="menuConnexionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?php echo 'Bienvenue, ' . $_SESSION['nom_entreprise']; ?>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="menuConnexionDropdown">
+                                    <li><a class="dropdown-item" href="deconnexion.php">Déconnexion</a></li>
+                                </ul>
+                            </li>
 
-<?php
-    } else {
-?>
+                        <?php
+                        } else {
+                        ?>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="menuConnexionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Se Connecter
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="menuConnexionDropdown">
-                                
-                                <li><a class="dropdown-item" href="#1">Elèves / Enseignant</a></li>
-                                <li><a class="dropdown-item"href="co.php">Entreprise</a></li>
-                                <li><a class="dropdown-item" href="#">Personnel</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="menuConnexionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Se Connecter
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="menuConnexionDropdown">
 
-<?php
-    }
-?>
-                         
+                                    <li><a class="dropdown-item" href="#1">Elèves / Enseignant</a></li>
+                                    <li><a class="dropdown-item" href="co.php">Entreprise</a></li>
+                                    <li><a class="dropdown-item" href="#">Personnel</a></li>
+                                </ul>
+                            </li>
+
+                        <?php
+                        }
+                        ?>
+
                     </ul>
                 </div>
             </div>
@@ -128,7 +126,7 @@
                         <div class="text">
                             <span>Nous sommes ouverts à toutes propositions de projet tutoré pour nos étudiants. Que vous soyez une entreprise, une organisation ou une institution, nous vous encourageons à soumettre vos idées de projet.
 
-Le projet tutoré offre une excellente occasion de collaborer avec nos étudiants talentueux et motivés. Ils sont prêts à relever des défis et à mettre en pratique leurs connaissances et compétences.</span>
+                                Le projet tutoré offre une excellente occasion de collaborer avec nos étudiants talentueux et motivés. Ils sont prêts à relever des défis et à mettre en pratique leurs connaissances et compétences.</span>
                         </div>
                         <a href="co.php">Proposer des projets</a>
                     </div>

@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,24 +7,22 @@
   <title>Offre Alternance</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="../../css/Entreprise_CSS/AfficherOffre.css">
 
 </head>
 
+
 <body>
+
   <?php
+  include '../../modele/connexionBd.php';
+
   if (isset($_SESSION['id_entreprise'])) {
     try {
-      $host = "localhost";
-      $dbname = "id20742082_geii";
-      $user = "root";
-      $pass = "";
 
-      $conn = new PDO("mysql:host=$host;dbname=$dbname", 'root', '');
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      $stmt = $conn->prepare("SELECT * FROM offre_alternance JOIN entreprise ON offre_alternance.id_entreprise = entreprise.id_entreprise WHERE offre_alternance.id_entreprise = :id_entreprise");
+      $stmt = $pdo->prepare("SELECT * FROM offre_alternance JOIN entreprise ON offre_alternance.id_entreprise = entreprise.id_entreprise WHERE offre_alternance.id_entreprise = :id_entreprise");
       $stmt->bindParam(':id_entreprise', $_SESSION['id_entreprise']);
       $stmt->execute();
 
@@ -34,7 +33,7 @@
         echo '<div class="card  border-bottom">';
         echo '<div class="card-header" id="headingOne">';
         $imageURL = '../../assets/img/' . $row['image'];
-        
+
         echo "<td><img src='" . $imageURL . "' height='100' width='100'></td>\n";
         echo ' <h4 class="card-subtitle text-muted d-inline-block">' . $row['nom_entreprise'] . '</h4>';
         echo ' <h5 class="mb-0">';
@@ -95,25 +94,25 @@
         echo '<h6 class="card-subtitle text-muted">Détails du poste</h6>';
         echo '<div class="offre-details">';
 
-         echo '<div class="info">';
-         echo '<hr />';
+        echo '<div class="info">';
+        echo '<hr />';
         //  echo '<div class="label">Qui sommes-nous :</div>';
         //  echo '<div class="value">' . $row['description_entr'] . '</div>';
-         echo $row['description_entr'];
-         echo '</div>';
-
-         echo '<br />';
-
-        echo '<div class="info">';
-        echo '<div class="label">Type de poste :  ' .  $row['contrat'].' </div>';
+        echo $row['description_entr'];
         echo '</div>';
 
         echo '<br />';
 
-         echo '<div class="info">';
-         echo '<div class="label">Profil recherché :</div>';
-         echo  ' Diplômé(e) d\'une école universitaire en Génie Électrique et Informatique Industrielle (GEII)';
-         echo '</div>';
+        echo '<div class="info">';
+        echo '<div class="label">Type de poste :  ' .  $row['contrat'] . ' </div>';
+        echo '</div>';
+
+        echo '<br />';
+
+        echo '<div class="info">';
+        echo '<div class="label">Profil recherché :</div>';
+        echo  ' Diplômé(e) d\'une école universitaire en Génie Électrique et Informatique Industrielle (GEII)';
+        echo '</div>';
 
         echo '<br />';
 
@@ -125,7 +124,7 @@
         echo '<br />';
         echo '<div class="info">';
         echo '<div class="label">Compétences :</div>';
-        echo $row['competences'] ;
+        echo $row['competences'];
         // echo '</div>';
         echo '</div>';
 
@@ -133,13 +132,9 @@
         echo '<div class="info">';
         echo '<div class="label">Comment postuler à cette offre :</div>';
         // echo '<div class="value">' . $row['postuler'] . '</div>';
-        echo $row['postuler'];  
+        echo $row['postuler'];
         // echo '</div>';
         echo '</div>';
-
-
-
-
 
         echo '</div>';
         echo '</div>';
@@ -152,7 +147,7 @@
       $message = "Echec de la récupération des éléments : " . $e->getMessage();
     }
 
-    $conn = null;
+  
   }
   ?>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
