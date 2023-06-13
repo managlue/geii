@@ -8,8 +8,8 @@
     <title>GEII - Espace Enseignant</title>
     <!-- https://getbootstrap.com/docs/5.3/getting-started/introduction/ -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <link href="../../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../bootstrap-5.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../css/Enseignant_CSS/enseignant.css">
 </head>
 
