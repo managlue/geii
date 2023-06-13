@@ -1,26 +1,74 @@
-<header class="p-3 bg-dark text-white">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-      </a>
+<head>
 
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-      </ul>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-      </form>
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+<link rel="stylesheet" href="../css/Footer/style.css">
 
-      <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Login</button>
-        <button type="button" class="btn btn-warning">Sign-up</button>
-      </div>
+
+
+</head>
+
+<footer>
+<div class="footer-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 footer-about">
+                <img class="logo-footer" src="../assets/icons/GEII.png" alt="logo-footer"
+                    data-at2x="../assets/icons/GEII.png">
+                <p>
+      Bienvenue à l'IUT d'Évry Val d'Essonne ! 
+                </p>
+            </div>
+            <div class="col-md-4 offset-md-1 footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 25 cours Monseigneur Roméro,91000 Évry</p>
+                <p><i class="fas fa-phone"></i> 01 69 47 72 20</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:secretariat-geii@iut.univ-evry.fr">secretariat-geii@iut.univ-evry.fr</a>
+                </p>
+            </div>
+            <div class="col-md-4 footer-links ">
+                <!-- <div class="row">
+                    <div class="col">
+                        <h3>Lien</h3>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><a class="scroll-link" href="#top-content">Accueil</a></p>
+                        <p><a href="#">Espace Entreprise</a></p>
+                        <p><a href="#">Espace Entreprise</a></p>
+                        <p><a href="#">Espace Entreprise</a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><a href="#">Plan du site</a></p>
+                        <p><a href="#">Mentions légales</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</header>
+</div>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 footer-copyright">
+                &copy; 2023 IUT d’Évry Val d’Essonne 
+            </div>
+            <div class="col-md-6 footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+<script src="../bootstrap-5.3/js/bootstrap.bundle.js"></script>
+</script>
