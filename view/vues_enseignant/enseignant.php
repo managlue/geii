@@ -180,7 +180,7 @@
                                     <td>
                                         <?php if (isset($notes[$etudiant['id_etudiant']][$i])) { ?>
 
-<!-- L'indentation est comme ceci car cela définit les espaces des informations affichées lors du survol de la souris -->
+    <!-- L'indentation est comme ceci car cela définit les espaces des informations affichées lors du survol de la souris -->
                                             <span title="Intitulé : <?php echo htmlspecialchars($notes[$etudiant['id_etudiant']][$i]['intitule']); ?> 
 Date : <?php echo htmlspecialchars($notes[$etudiant['id_etudiant']][$i]['date']); ?>
 
