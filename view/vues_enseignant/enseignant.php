@@ -11,6 +11,7 @@
     <link href="../../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet">
     <script src="../../bootstrap-5.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../css/Enseignant_CSS/enseignant.css">
+    <link rel="stylesheet" href="../../css/Footer/style.css">
 </head>
 
 <body>
@@ -216,3 +217,4 @@ Commentaire : <?php echo htmlspecialchars($notes[$etudiant['id_etudiant']][$i]['
 
 </body>
 </html>
+<?php include '../footer.php' ?>
