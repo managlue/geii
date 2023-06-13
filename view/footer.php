@@ -41,8 +41,8 @@
                     <div class="col-md-6">
                         <p><a class="scroll-link" href="#top-content">Accueil</a></p>
                         <p><a href="#">Espace Entreprise</a></p>
-                        <p><a href="#">Espace Entreprise</a></p>
-                        <p><a href="#">Espace Entreprise</a></p>
+                        <p><a href="#">Espace Enseignant</a></p>
+                        <p><a href="#">Espace Etudiants</a></p>
                     </div>
                     <div class="col-md-6">
                         <p><a href="#">Plan du site</a></p>
