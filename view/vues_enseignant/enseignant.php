@@ -215,5 +215,4 @@ Commentaire : <?php echo htmlspecialchars($notes[$etudiant['id_etudiant']][$i]['
     </div>
 
 </body>
-
 </html>
