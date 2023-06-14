@@ -1,0 +1,40 @@
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  /* Couleur de fond légèrement noire */
+  padding: 20px;
+  color: #fff;
+}
+
+.card.zoom-effect {
+  transform: scale(0.95);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5%;
+}
+
+.card.zoom-effect:hover {
+  transform: scale(0.99);
+}
+
+.titre {
+  text-align: center;
+  font-size: 22px;
+}
+
+hr {
+  border-top: 3px solid #0077d8b3;
+  margin: 10px auto;
+  max-width: 85%;
+}
