@@ -11,8 +11,8 @@
         <meta charset="utf-8">
 
         <!-- https://getbootstrap.com/docs/5.3/getting-started/introduction/ -->
-        <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <link href="../../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet">
+        <script src="../../bootstrap-5.3/js/bootstrap.min.js"></script>
 
         <!-- Autres JS -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <?php include '../footer.php'; ?>
+    <!-- <?php include '../footer.php'; ?> -->
 
 </body>
 

@@ -1,4 +1,4 @@
-<div class="vertical-nav bg-white menu-sidebar" id="sidebar">
+<div class="vertical-nav bg-white" id="sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
         <div class="media d-flex align-items-center">
             <div class="media-body">
@@ -14,13 +14,13 @@
     <ul class="nav flex-column bg-white mb-0">
         <li class="nav-item">
             <a href="#" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-address-card-o mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
                 Profil
             </a>
         </li>
         <li class="nav-item">
             <a href="notes.php" class="nav-link text-dark font-italic">
-                <i class="fa fa-star-half-o mr-3 text-primary fa-fw"></i>
+                <i class="fa fa-graduation-cap mr-3 text-primary fa-fw"></i>
                 Notes
             </a>
         </li>
