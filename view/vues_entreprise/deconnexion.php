@@ -14,5 +14,5 @@ if (ini_get('session.use_cookies')) {
 // Détruit la session
 session_destroy();
 
-header("Location: /geii/view/accueil.php");
+header("location: /geii/view/vues_accueil/accueil.php");
 ?>

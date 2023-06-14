@@ -10,7 +10,7 @@
     include '../../modele/connexionBd.php';
 
     if (!isset($_SESSION['id_entreprise'])) {
-        header("location: /geii/view/accueil.php");
+        header("location: /geii/view/vues_accueil/accueil.php");
         exit();
     }
 
