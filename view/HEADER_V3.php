@@ -13,7 +13,13 @@
 <nav class="navbar navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret">
   <div class="container">
     <a class="navbar-brand" href="index.html">
-      <img src="../assets/icons/GEII.png" alt="" width="124" height="69">
+      <!--
+        Si vous avez un soucis avec le logo, checkez le chemin
+        pour que le chemin absolu fonctionne, il faut que votre dossier racine du projet soit appelé geii
+        c'est le dossier qui est dans C:\wamp64\www\projet\
+        par exemple chez moi : C:\wamp64\www\projet\geii\assets\icons\GEII.png donc \geii\assets\icons\GEII.png
+      -->
+      <img src="\geii\assets\icons\GEII.png" alt="" width="124" height="69">
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
