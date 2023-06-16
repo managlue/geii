@@ -54,7 +54,7 @@
                 include '../../modele/etudiant/getEdt.php';
 
                 // voir les supports de cours
-                // include '../modele/etudiant/.php';
+                include '../../modele/etudiant/getSupportCours.php';
             ?>
 
             <!-- fin du contenu de la page -->
