@@ -1,0 +1,38 @@
+body {
+    background: linear-gradient(to bottom, #c0d9fff1, #ffffff);
+    font-family: 'Poppins', sans-serif;
+  }
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+.accordion-button:hover {
+    background-color: #e9ecef;
+}
+
+.accordion-body {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+}
