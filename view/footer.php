@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
-    <link rel="stylesheet" href="../css/Footer/style.css">
+    <link rel="stylesheet" href="/geii/css/Footer/style.css">
 
 </head>
 
