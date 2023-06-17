@@ -2,6 +2,9 @@
     <div class="py-4 px-3 mb-4 bg-light">
         <div class="media d-flex align-items-center">
             <div class="media-body">
+                <a class="navbar-brand" href="index.html">
+                    <img src="\geii\assets\icons\GEII.png" alt="" width="124" height="69">
+                </a>
 
 <?php
     echo '<h4 class="m-0">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . '</h4>';

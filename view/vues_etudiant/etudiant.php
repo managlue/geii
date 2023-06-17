@@ -30,33 +30,54 @@
 <body>
 
     <?php include '../header.php'; ?>
+    <?php include 'menu.php'; ?>
 
     <div class="container-fluid">
-
-        <?php include 'menu.php'; ?>
         <div class="page-content p-5 mt-3 mb-3" id="content">
 
-            <!-- Toggle button -->
-            <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" onclick="toggleIcon()">
-                <i id="icon" class="fa fa-angle-double-left fa-2x"></i>
-            </button>
+            <table style="width: 100%">
+                <colgroup>
+                    <col style="width: 70%;">
+                    <col style="width: 30%;">
+                </colgroup>
+                <tr>
+                    <td>
+                        <!-- Toggle button -->
+                        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" onclick="toggleIcon()">
+                            <i id="icon" class="fa fa-angle-double-left fa-2x"></i>
+                        </button>
+                        <?php echo '<span class="fs-1">Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !</span>'; ?>
+                    </td>
+                    <td rowspan="4">
+                        <?php
+                            // voir l'emplois du temps
+                            $today = true;
+                            include '../../modele/etudiant/getEdt.php';
+                        ?>
+                    </td>
+                </tr>
+                <tr><td>
+                    <?php
+                        // voir les dernières notes
+                        $limit = 3;
+                        include '../../modele/etudiant/getMarks.php';
+                    ?>
+                </td></tr>
+                <tr><td>
+                    <?php
+                        // voir les supports de cours
+                        $limit = 3;
+                        include '../../modele/etudiant/getSupportCours.php';
+                    ?>
+                </td></tr>
+                <tr><td>
+                    <!--
+                        un caractere invisible pour que l'emploi du temps soit de la bonne taille
+                        si je savais comment faire un truc plus propre je n'utiliserais pas un tableau alors ne critiquez pas svp '^^
+                    --> ㅤ
+                </td></tr>
+            </table>
 
-            <?php
-                echo '<span class="fs-1">Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !</span>';
-
-                // voir les dernières notes
-                $limit = 1;
-                include '../../modele/etudiant/getMarks.php';
-
-                // voir l'emplois du temps
-                $today = true;
-                include '../../modele/etudiant/getEdt.php';
-
-                // voir les supports de cours
-                include '../../modele/etudiant/getSupportCours.php';
-            ?>
-
-            <!-- fin du contenu de la page -->
         </div>
     </div>
 
