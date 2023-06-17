@@ -30,7 +30,7 @@ if (isset($_POST['NomEntreprise']) && isset($_POST['email_inscription']) && isse
             $stmt->execute();
 
         
-            header("location: /Accueil/vues_admin/Admin.php");
+            header("location: /geii/view/vues_admin/Admin.php");
             exit();
         } catch (PDOException $e) {
             $message = "Echec de l'insertion : " . $e->getMessage();
