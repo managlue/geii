@@ -68,47 +68,57 @@
 
 
     <div class="card-group">
+
         <div class="card zoom-effect">
-            <img src="../../assets/img/BUT.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">BUT Génie Électrique et Informatique Industrielle (GEII)</h5>
-                <p class="card-text">La formation dispensée dans les départements Génie Électrique et Informatique
-                    Industrielle (GEII) est construite par une communauté au sein de laquelle coopèrent enseignants et
-                    professionnels de l’industrie et des services. Elle constitue un dispositif national universitaire
-                    qui prépare en 3 ans l’étudiant à l’insertion professionnelle tout en lui laissant la possibilité de
-                    poursuivre ses études.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-body-secondary">⌛ Durée de la formation : 3 ans | Initiale ou alternance</small>
-            </div>
+            <a href="../vues_formation/geii.php">
+                <img src="../../assets/img/BUT.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+
+                    <h5 class="card-title">BUT Génie Électrique et Informatique Industrielle (GEII)</h5>
+            </a>
+            <p class="card-text">La formation dispensée dans les départements Génie Électrique et Informatique
+                Industrielle (GEII) est construite par une communauté au sein de laquelle coopèrent enseignants
+                et professionnels de l’industrie et des services. Elle constitue un dispositif national
+                universitaire qui prépare en 3 ans l’étudiant à l’insertion professionnelle tout en lui laissant
+                la possibilité de poursuivre ses études.</p>
         </div>
-        <div class="card zoom-effect">
+        <div class="card-footer">
+            <small class="text-body-secondary">⌛ Durée de la formation : 3 ans | Initiale ou alternance</small>
+        </div>
+    </div>
+
+
+    <div class="card zoom-effect">
+        <a href="../vues_formation/miaw.php">
             <img src="../../assets/img/MIAW.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">LP Métiers de l’informatique : applications web</h5>
-                <p class="card-text">La Licence Métiers de l’Informatique: Applications Web propose deux parcours pour
-                    former des jeunes de niveau BAC+2 aux métiers de l’Internet et de responsable informatique. La
-                    formation MIAW d’une manière générale a des objectifs scientifiques et surtout professionnels bien
-                    identifiés et s’inscrit avec ses deux parcours (MIAW ASR2I) et (MIAW DAW2I) dans l’offre globale de
-                    l’établissement.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-body-secondary">⌛ Durée de la formation : 1 an | En alternance </small>
-            </div>
-        </div>
-        <div class="card zoom-effect">
+        </a>
+        <p class="card-text">La Licence Métiers de l’Informatique: Applications Web propose deux parcours pour
+            former des jeunes de niveau BAC+2 aux métiers de l’Internet et de responsable informatique. La
+            formation MIAW d’une manière générale a des objectifs scientifiques et surtout professionnels bien
+            identifiés et s’inscrit avec ses deux parcours (MIAW ASR2I) et (MIAW DAW2I) dans l’offre globale de
+            l’établissement.</p>
+    </div>
+    <div class="card-footer">
+        <small class="text-body-secondary">⌛ Durée de la formation : 1 an | En alternance </small>
+    </div>
+    </div>
+    <div class="card zoom-effect">
+        <a href="../vues_formation/cimisigd.php">
             <img src="../../assets/img/cyber.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">LP Métiers de l’informatique et de cybersécurité – Systèmes d’Information et
                     Gestion des Données</h5>
-                <p class="card-text">Le diplôme a pour objet de former aux comportements et techniques de conception et
-                    d’administration destinés à l’analyse, la conception, la mise à disposition et au maintien en
-                    condition opérationnelle des systèmes d’information.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-body-secondary">⌛ Durée de la formation : 1 an | En alternance</small>
-            </div>
-        </div>
+        </a>
+        <p class="card-text">Le diplôme a pour objet de former aux comportements et techniques de conception et
+            d’administration destinés à l’analyse, la conception, la mise à disposition et au maintien en
+            condition opérationnelle des systèmes d’information.</p>
+    </div>
+    <div class="card-footer">
+        <small class="text-body-secondary">⌛ Durée de la formation : 1 an | En alternance</small>
+    </div>
+    </div>
     </div>
 
     <hr>
