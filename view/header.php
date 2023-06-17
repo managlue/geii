@@ -4,7 +4,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">  
     
   <!-- aucune idée de pourquoi mais il faut mettre ça sinon ça ne marche pas -->
-
 </head>
 
 <header>
