@@ -51,8 +51,7 @@ foreach ($classes as $classe) {
     $stmt->bindParam(':classe', $classe);
     $stmt->execute();
 }
-
-    echo "Enseignant créé avec succès!";
+header("location: /geii/view/vues_admin/Admin.php");
 } catch (PDOException $e) {
     echo "Erreur lors de la création de l'enseignant: " . $e->getMessage();
 }
