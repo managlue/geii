@@ -16,7 +16,7 @@
 <body>
     <div class="container" style="max-width: 93%;">
         <div class="card mb-3">
-            <img src="../../assets/formation/miaw.jpg" class="card-img-top" alt="...">
+            <img src="../../assets/img/formation/miaw.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">LP Métiers de l’informatique : applications web</h5>
                 <p class="card-text">La Licence Métiers de l’Informatique: Applications Web propose deux parcours pour
@@ -61,7 +61,12 @@
                         </div>
                         <div class="title-block">
                             <h5>🔄 ALTERNANCE</h5>
-                            <p>Plus d’infos sur le site du CFA-EVE</p>
+                            <p>
+                                Plus d’infos sur le <a
+                                    href="https://www.cfa-eve.fr/Formation/82/licence-pro-metiers-de-linformatique-applications-web"
+                                    target="_blank">site du CFA-EVE</a>
+                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -282,7 +287,35 @@
                         </p>
                     </div>
                 </div>
+                <?php
+                // Fichier de la LP Métiers de l’informatique : applications web – Parcours 1 : Administration et sécurisation des réseaux et services Internet et Intranet en formation continue
+                $parcours1FilePath = "../../assets/pdf/asrii.pdf";
+
+                // Fichier de la LP Métiers de l’informatique : applications web – Parcours 2 : Développement avancé d’applications Web Internet et Intranet en formation continue
+                $parcours2FilePath = "../../assets/pdf/dawii.pdf";
+                ?>
+
+                <div class="card my-4">
+                    <div class="card-header">
+                        <h3>🎓 Formation continue</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+
+                            <!-- Lien vers la fiche du parcours 1 -->
+                            <a href="<?php echo $parcours1FilePath; ?>" target="_blank">Fiche de la LP Métiers de
+                                l’informatique :
+                                applications web – Parcours 1</a> </br>
+
+                            <!-- Lien vers la fiche du parcours 2 -->
+                            <a href="<?php echo $parcours2FilePath; ?>" target="_blank">Fiche de la LP Métiers de
+                                l’informatique :
+                                applications web – Parcours 2</a>
+                        </p>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
     </div>
