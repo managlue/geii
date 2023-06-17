@@ -1,7 +1,45 @@
-<?php
-    if (isset($today) && $today) $dateArray = setDate($today);
-    else $dateArray = setDate();
-    $max = count($dateArray);
+<?php    
+    include '../../modele/connexionBd.php';
+    // session_start();
+
+    // $today = true;
+
+    $noIsset = true;
+
+    if (isset($_POST['moins'])) {
+        $noIsset = false;
+
+        if (isset($today) && $today) $change = '-1 day';
+        else $change = '-1 week';
+
+        foreach ($_SESSION['date'] as $jour => &$date) {
+            $newDate = new DateTime($date);
+            $newDate->modify($change);
+            $date = $newDate->format('Y-m-d');
+        }
+    }
+
+    if (isset($_POST['plus'])) {
+        $noIsset = false;
+
+        if (isset($today) && $today) $change = '+1 day';
+        else $change = '+1 week';
+
+        foreach ($_SESSION['date'] as $jour => &$date) {
+            $newDate = new DateTime($date);
+            $newDate->modify($change);
+            $date = $newDate->format('Y-m-d');
+        }
+    }
+
+    if ($noIsset) {
+        if (isset($today) && $today) $_SESSION['date'] = setDate($today);
+        else $_SESSION['date'] = setDate();
+        $_SESSION['max'] = count($_SESSION['date']);
+    }
+
+    $dateArray =  $_SESSION['date'];
+    $max = $_SESSION['max'];
 
     $sql = "SELECT heure_debut, heure_fin, salle, nom_enseignant, prenom_enseignant, nom_matiere, couleur, jour
         FROM Emploi_du_temps NATURAL JOIN Enseignant NATURAL JOIN Matiere WHERE";
@@ -22,8 +60,35 @@
 
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 
-    if (empty($results)) echo "Rien pour aujourd'hui.";
+<form method="post" action="">
+    <button id="sidebarCollapse" type="submit" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" name="moins">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+
+<?php
+    if (isset($today) && $today) echo "Jour précédent";
+    else echo 'Semaine précédente';
+?>
+
+    </button>ㅤ
+    <button id="sidebarCollapse" type="submit" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" name="plus">
+
+<?php
+    if (isset($today) && $today) echo "Jour suivant";
+    else echo 'Semaine suivante';
+?>
+
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </button>
+</form>
+
+
+<?php
+    if (empty($results)) {
+        if (isset($today) && $today) echo "Rien pour aujourd'hui.";
+        else echo "Rien pour cette semaine.";
+    }
     else {
 
         $edt = [];
@@ -41,27 +106,23 @@
         <img src="img/content/timetable.png" alt="">
     </div>
     <div class="table-responsive">
+
         <table class="table table-light table-bordered text-center">
             <thead>
-                <tr class="bg-light-gray">
-
+                <tr>
 <?php
-    foreach ($dateArray as $jour => $date)
-        echo ' <th class="text-uppercase">' . $jour . '</th>';
+    foreach ($_SESSION['date'] as $jour => $date)
+        echo ' <th class="text-uppercase">' . "$jour<br>$date</th>";
 ?>
-
                 </tr>
             </thead>
             <tbody>
-
 <?php
     $tailleMaximale = 0;
     foreach ($edt as $edtContenu) {
 
         $tailleEdtContenu = count($edtContenu);
-        if ($tailleEdtContenu > $tailleMaximale) {
-            $tailleMaximale = $tailleEdtContenu;
-        }
+        if ($tailleEdtContenu > $tailleMaximale) $tailleMaximale = $tailleEdtContenu;
     }
 
     $cpt = 0;
@@ -82,7 +143,6 @@
         if ($cpt == $tailleMaximale) $fin = true;
     }
 ?>
-
             </tbody>
         </table>
     </div>

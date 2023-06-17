@@ -52,7 +52,7 @@
                         </button>
                         <?php echo '<span class="fs-1">Bienvenue ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' !</span>'; ?>
                     </td>
-                    <td rowspan="4">
+                    <td class="align-middle text-center" rowspan="4">
                         <?php
                             // voir l'emplois du temps
                             $today = true;
@@ -85,8 +85,7 @@
         </div>
     </div>
 
-    <!-- <?php include '../footer.php'; ?> -->
+    <?php include '../footer.php'; ?>
     
 </body>
-
 </html>
