@@ -1,8 +1,9 @@
 <?php
-try {
-    $conn = new PDO("mysql:host=localhost;dbname=test", 'root', '');
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+include 'C:\wamp64\www\projets\geii\modele\connexionBd.php';
+
+try {
+   
     if (isset($_GET['page_enseignant'])) {
         $pageActuelle_Enseignant = $_GET['page_enseignant'];
     } else {
@@ -13,7 +14,7 @@ try {
     $indiceDepart = ($pageActuelle_Enseignant - 1) * $enseignantsParPage;
 
     // Requête pour récupérer les enseignants paginés
-    $stmt = $conn->prepare("SELECT  enseignant.id_enseignant, nom_enseignant, prenom_enseignant, login_enseignant, pswd_enseignant, nom_classe 
+    $stmt = $pdo->prepare("SELECT  enseignant.id_enseignant, nom_enseignant, prenom_enseignant, login_enseignant, pswd_enseignant, nom_classe 
                             FROM enseignant 
                             JOIN enseignant_classe ON enseignant.id_enseignant = enseignant_classe.id_enseignant
                             JOIN classe ON enseignant_classe.id_classe = classe.id_classe
@@ -25,7 +26,7 @@ try {
     $enseignants = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Compter le nombre total d'enseignants
-    $stmtCount = $conn->query("SELECT COUNT(*) FROM enseignant");
+    $stmtCount = $pdo->query("SELECT COUNT(*) FROM enseignant");
     $totalEnseignants = $stmtCount->fetchColumn();
 
    
@@ -35,4 +36,5 @@ try {
    } catch (PDOException $e) {
     $message = "Echec de la récupération des éléments : " . $e->getMessage();
 }
+
 ?>

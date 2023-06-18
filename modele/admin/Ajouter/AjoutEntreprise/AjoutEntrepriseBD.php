@@ -1,9 +1,6 @@
 <?php
 
-$host = "localhost";
-$dbname = "test";
-$user = "root";
-$pass = "";
+include '../../../connexionBd.php';
 
 if (isset($_POST['NomEntreprise']) && isset($_POST['email_inscription']) && isset($_POST['phone']) && isset($_POST['pwd_inscription']) && isset($_POST['confirm_pwd'])) {
     $nom = $_POST['NomEntreprise'];
@@ -30,8 +27,7 @@ if (isset($_POST['NomEntreprise']) && isset($_POST['email_inscription']) && isse
             $stmt->execute();
 
         
-            header("location: /geii/view/vues_admin/Admin.php");
-            exit();
+            
         } catch (PDOException $e) {
             $message = "Echec de l'insertion : " . $e->getMessage();
         }
@@ -42,3 +38,7 @@ if (isset($_POST['NomEntreprise']) && isset($_POST['email_inscription']) && isse
 } else {
     $message = "Toutes les données doivent être renseignées";
 }
+
+header("location: projets/geii/view/vues_admin/Admin.php");
+exit();
+?>

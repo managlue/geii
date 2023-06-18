@@ -31,7 +31,7 @@
     <div class="container">
         <!-- signup form -->
         <div class="signup-box">
-            <form method="post" action="AjoutEntrepriseBD.php">
+            <form method="post" action="../../../../modele/admin/Ajouter/AjoutEntreprise/AjoutEntrepriseBD.php">
                 <input type="text" class="name ele" id="NomEntreprise" name="NomEntreprise" placeholder="Saisir le nom de votre entreprise">
                 <input type="email" class="email ele" id="email_inscription" name="email_inscription" placeholder="Saisir votre adresse mail">
                 <input type="phone" class="phone ele" id="phone" name="phone" placeholder="Saisir votre numéro de téléphone" >

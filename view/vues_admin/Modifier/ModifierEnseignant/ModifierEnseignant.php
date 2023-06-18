@@ -1,19 +1,13 @@
 <?php
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$dbpassword = "";
-$dbname = "test";
+
+include '../../../../modele/connexionBd.php';
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $dbpassword);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Récupération des informations de l'enseignant à modifier
-    $idEnseignant = $_GET['id']; // Supposons que vous récupérez l'ID de l'enseignant à modifier depuis l'URL
-
+    $idEnseignant = $_GET['id']; 
     // Requête pour récupérer les informations de l'enseignant
-    $stmt = $conn->prepare("SELECT * FROM enseignant WHERE id_enseignant = :idEnseignant");
+    $stmt = $pdo->prepare("SELECT * FROM enseignant WHERE id_enseignant = :idEnseignant");
     $stmt->bindParam(':idEnseignant', $idEnseignant);
     $stmt->execute();
     $enseignant = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -24,19 +18,19 @@ try {
     }
 
     // Récupération des classes et matières associées à l'enseignant
-    $stmtClasses = $conn->prepare("SELECT id_classe FROM enseignant_classe WHERE id_enseignant = :idEnseignant");
+    $stmtClasses = $pdo->prepare("SELECT id_classe FROM enseignant_classe WHERE id_enseignant = :idEnseignant");
     $stmtClasses->bindParam(':idEnseignant', $idEnseignant);
     $stmtClasses->execute();
     $enseignantClasses = $stmtClasses->fetchAll(PDO::FETCH_COLUMN);
 
-    $stmtMatieres = $conn->prepare("SELECT id_matiere FROM enseignant_matiere WHERE id_enseignant = :idEnseignant");
+    $stmtMatieres = $pdo->prepare("SELECT id_matiere FROM enseignant_matiere WHERE id_enseignant = :idEnseignant");
     $stmtMatieres->bindParam(':idEnseignant', $idEnseignant);
     $stmtMatieres->execute();
     $enseignantMatieres = $stmtMatieres->fetchAll(PDO::FETCH_COLUMN);
 
     // Formulaire de modification
     ?>
-    <form method="post" action="ModifierEnseignantBD.php">
+    <form method="post" action="../../../../modele/admin/Modifier/ModifierEnseignant/ModifierEnseignantBD.php">
         <input type="hidden" name="idEnseignant" value="<?php echo $enseignant['id_enseignant']; ?>">
 
         <label for="nom">Nom :</label>
@@ -55,7 +49,7 @@ try {
         <select name="classes[]" multiple>
             <?php
             // Récupération des classes disponibles
-            $stmt = $conn->prepare("SELECT * FROM classe");
+            $stmt = $pdo->prepare("SELECT * FROM classe");
             $stmt->execute();
             $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -71,7 +65,7 @@ try {
         <select name="matieres[]" multiple>
             <?php
             // Récupération des matières disponibles
-            $stmt = $conn->prepare("SELECT * FROM matiere");
+            $stmt = $pdo->prepare("SELECT * FROM matiere");
             $stmt->execute();
             $matieres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -92,5 +86,5 @@ try {
 }
 
 // Fermeture de la connexion à la base de données
-$conn = null;
+$pdo = null;
 ?>

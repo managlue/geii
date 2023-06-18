@@ -6,25 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../../css/Admin_CSS/Style_Admin.css" rel="stylesheet" />
-   
 </head>
 
 <body>
     <?php
-    include_once '../Entreprise/header.php';
-    ?>
-    <?php
-    include 'Afficher/Afficher_Enseignant.php';
+    include '../header.php';
+    include '../../modele/admin/Afficher/Afficher_Enseignant.php';
     // include 'Afficher_Offre.php';
     // include 'Afficher_projet.php';
-    include 'Afficher/Afficher_Etudiant.php';
-    include 'Afficher/Afficher_Entreprise.php';
+    include '../../modele/admin/Afficher/Afficher_Etudiant.php';
+    include '../../modele/admin/Afficher/Afficher_Entreprise.php';
     ?>
+   
 
     <div class="container-xl">
         <div class="table-responsive">
@@ -76,7 +74,7 @@
                                 <td><?php echo $enseignant['login_enseignant']; ?></td>
                                 <td>
                                 <a href="Modifier/ModifierEnseignant/ModifierEnseignant.php?id=<?php echo $enseignant['id_enseignant']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Modifier">&#xE254;</i></a>
-                                <a href="Supprimer/SupprimerEnseignant.php?enseigant_id=<?php echo $enseignant['id_enseignant']; ?>" class="delete" ><i class="material-icons"  title="Supprimer">&#xE872;</i></a>
+                                <a href="../../modele/admin/Supprimer/SupprimerEnseignant.php?enseignant_id=<?php echo $enseignant['id_enseignant']; ?>" class="delete" ><i class="material-icons"  title="Supprimer">&#xE872;</i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -153,7 +151,7 @@
                                 <td><?php echo $etudiant['login_etudiant']; ?></td>
                                 <td>
                                 <a href="Modifier/ModifierEtudiant/ModifierEtudiant.php?etudiant_id=<?php echo $etudiant['id_etudiant']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Modifier">&#xE254;</i></a>
-                                <a href="Supprimer/SupprimerEtudiant.php?etudiant_id=<?php echo $etudiant['id_etudiant']; ?>" class="delete" ><i class="material-icons"  title="Supprimer">&#xE872;</i></a>
+                                <a href="../../modele/admin/Supprimer/SupprimerEtudiant.php?etudiant_id=<?php echo $etudiant['id_etudiant']; ?>" class="delete" ><i class="material-icons"  title="Supprimer">&#xE872;</i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -228,7 +226,7 @@
                                 
                                 <td>
                                 <a href="Modifier/ModifierEntreprise/ModifierEntreprise.php?entre_id=<?php echo $entreprise['id_entreprise']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Modifier">&#xE254;</i></a>
-                                <a href="Supprimer/SupprimerEntreprise.php?entreprise_id=<?php echo $entreprise['id_entreprise']; ?>" class="delete" ><i class="material-icons"  title="Supprimer">&#xE872;</i></a>
+                                <a href="../../modele/admin/Supprimer/SupprimerEntreprise.php?entreprise_id=<?php echo $entreprise['id_entreprise']; ?>" class="delete" ><i class="material-icons"  title="Supprimer">&#xE872;</i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -262,10 +260,9 @@
         }
     });
 </script>
-
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-   
+<link href="../../bootstrap-5.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="../../bootstrap-5.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
 </body>

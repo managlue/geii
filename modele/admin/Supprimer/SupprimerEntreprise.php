@@ -1,19 +1,13 @@
 <?php
 
-$host = "localhost";
-$dbname = "test";
-$user = "root";
-$pass = "";
+include 'C:\wamp64\www\projets\geii\modele\connexionBd.php';
+
 
 if (isset($_GET['entreprise_id'])) {
 
     $entreprise_id = $_GET['entreprise_id'];
    
     try {
-
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $pdo->prepare("DELETE FROM entreprise WHERE id_entreprise = :entreprise_id");
         $stmt->bindParam(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
@@ -28,7 +22,7 @@ if (isset($_GET['entreprise_id'])) {
        
     }
 
-    header("location: /Accueil/vues_admin/Admin.php");
+    header("location: /geii/view/vues_admin/Admin.php");
     exit();
 }
 ?>

@@ -6,7 +6,7 @@
 </head>
 <body>
   <h2>Création d'un enseignant</h2>
-  <form action="AjoutEnseignantBD.php" method="post">
+  <form action="../../../../modele/admin/Ajouter/AjoutEnseignant/AjoutEnseignantBD.php" method="post">
     <div class="mb-3">
       <label for="nom" class="form-label">Nom de l'enseignant :</label>
       <input type="text" class="form-control" id="nom" name="nom" required>
@@ -32,8 +32,6 @@
   <select id="classes" name="classes[]" multiple required class="form-select">
     <option value="1">Classe 1</option>
     <option value="2">Classe 2</option>
-    <option value="3">Classe 3</option>
-    <!-- Ajoutez ici d'autres options pour les classes -->
   </select>
 </div>
 
@@ -43,11 +41,10 @@
     <option value="1">Énergie</option>
     <option value="2">Système d'information numérique</option>
     <option value="3">Informatique</option>
-    <!-- Ajoutez ici d'autres options pour les matières -->
   </select>
 </div>
 
-<button type="submit" class="btn btn-primary">Créer l'enseignant</button>
+<button type="submit" class="btn btn-primary">Ajouter</button>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
