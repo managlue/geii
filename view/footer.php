@@ -39,12 +39,11 @@
                 </div> -->
                         <div class="row">
                             <div class="col-md-6">
-                                <p><a class="scroll-link" href="../vues_formation/formations.php">Nos Formations</a></p>
-                                <p><a href="../vues_formation/programme.php">Les Programmes</a></p>
-                                <p><a href="../vues_formation/alternance.php">Alternance</a></p>
+                                <p><a class="scroll-link" href="/geii/view/vues_etudiant/etudiant.php">Espace Etudiant</a></p>
+                                <p><a href="/geii/view/vues_enseignant/enseignant.php">Espace Enseignant</a></p>
                             </div>
                             <div class="col-md-6">
-                                <p><a href="../vues_formation/futur.php">Après le DUT GEII </a></p>
+                                <p><a href="/geii/view/vues_entreprise/AccueilEnt.php">Espace Entreprise</a></p>
                                 <p><a href="../vues_formation/mentions.php">Mentions légales</a></p>
                             </div>
                         </div>
