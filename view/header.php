@@ -1,3 +1,10 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
+<style>
+  header {
+    font-family: "Poppins", sans-serif;
+  }
+</style>
+
 <header>
   <!-- Navbar 1 - Bootstrap Brain Component -->
   <nav class="navbar navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret">
