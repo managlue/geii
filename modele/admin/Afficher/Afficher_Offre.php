@@ -1,6 +1,6 @@
 <?php
 
-include 'C:\wamp64\www\projets\geii\modele\connexionBd.php';
+include '../../modele/connexionBd.php';
 
     try {
      

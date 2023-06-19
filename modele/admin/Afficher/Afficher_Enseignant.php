@@ -1,14 +1,11 @@
 <?php
 
-include 'C:\wamp64\www\projets\geii\modele\connexionBd.php';
+include '../../modele/connexionBd.php';
 
 try {
    
-    if (isset($_GET['page_enseignant'])) {
-        $pageActuelle_Enseignant = $_GET['page_enseignant'];
-    } else {
-        $pageActuelle_Enseignant = 1;
-    }
+    if (isset($_GET['page_enseignant'])) $pageActuelle_Enseignant = $_GET['page_enseignant'];
+    else $pageActuelle_Enseignant = 1;
 
     $enseignantsParPage = 3;
     $indiceDepart = ($pageActuelle_Enseignant - 1) * $enseignantsParPage;

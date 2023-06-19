@@ -1,14 +1,11 @@
 <?php
 
-include 'C:\wamp64\www\projets\geii\modele\connexionBd.php';
+include '../../modele/connexionBd.php';
 
 try {
    
-    if (isset($_GET['page_entreprise'])) {
-        $pageActuelle_entreprise = $_GET['page_entreprise'];
-    } else {
-      $pageActuelle_entreprise = 1;
-    }
+    if (isset($_GET['page_entreprise'])) $pageActuelle_entreprise = $_GET['page_entreprise'];
+    else $pageActuelle_entreprise = 1;
 
     $entrepriseParPage = 3;
     $indiceDepart = ($pageActuelle_entreprise - 1) *  $entrepriseParPage;

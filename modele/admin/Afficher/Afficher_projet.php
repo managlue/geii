@@ -1,6 +1,6 @@
 <?php
 
-include 'C:\wamp64\www\projets\geii\modele\connexionBd.php';
+include '../../modele/connexionBd.php';
 
     try {
       $stmt = $pdo->prepare("SELECT titre_projet_tut FROM projet_tut");
