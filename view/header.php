@@ -24,25 +24,32 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1">
 
-            <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </div>
+            <button class="btn" type="button">
+              <a class="link-dark link-underline link-underline-opacity-0" href="/geii/accueil.php">Accueil</a>
+            </button>
 
             <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
+                Formations
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="/geii/view/vues_formation/geii.php">BUT Génie Electrique</a></li>
+                <li><a class="dropdown-item" href="/geii/view/vues_formation/miaw.php">LP Application Web</a></li>
+                <li><a class="dropdown-item" href="/geii/view/vues_formation/cimisigd.php">LP Cybersécurité & Systèmes d'Informations</a></li>
+              </ul>
+            </div>
+
+            <button class="btn" type="button">
+              <a class="link-dark link-underline link-underline-opacity-0" href="/geii/modele/login.php">Se connecter</a>
+            </button>
+
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Entreprise
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/geii/view/vues_entreprise/AccueilEnt">Accueil Entreprise</a></li>
+                <li><a class="dropdown-item" href="/geii/view/vues_entreprise/co.php">Vous connecter</a></li>
               </ul>
             </div>
 

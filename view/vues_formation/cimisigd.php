@@ -11,9 +11,16 @@
     <link rel="stylesheet" href="../../css/Footer/style.css">
     <link rel="stylesheet" href="../../css/Static_CSS/formation.css">
 
+    <!-- les bootstrap en ligne pour les dropdown -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <?php
+    include '../header.php';
+    ?>
+
     <div class="container" style="max-width: 93%;">
         <div class="card mb-3">
             <img src="../../assets/img/formation/cimisigd.jpg" class="card-img-top" alt="...">
