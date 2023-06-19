@@ -1,11 +1,22 @@
-<!-- formulaire de connexion -->
-<form action="login.php" method="POST">
-    <label for="login">Login:</label>
-    <input type="text" id="login" name="login" required><br><br>
-    <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <input type="submit" value="Se connecter">
-</form>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/geii/css/Entreprise_CSS/style.css">
+</head>
+    
+<body>
+    <div class="container">
+        <!-- formulaire de connexion -->
+        <div class="form-section">
+            <form action="login.php" method="POST">
+                <div class="login-box">
+                    <input type="text" class="ele" id="login" name="login" placeholder="Insérez votre identifiant" required>
+                    <input type="password" class="password ele" id="password" name="password" placeholder="Insérez votre mot de passe" required>
+                    <button class="clkbtn">Connexion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
 
 <?php
 
