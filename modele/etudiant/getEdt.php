@@ -1,39 +1,27 @@
-<?php    
-    include '../../modele/connexionBd.php';
-    // session_start();
-
-    // $today = true;
-
+<?php
+    if (!isset($today)) $today = false;
     $noIsset = true;
 
     if (isset($_POST['moins'])) {
         $noIsset = false;
 
-        if (isset($today) && $today) $change = '-1 day';
+        if ($today) $change = '-1 day';
         else $change = '-1 week';
 
-        foreach ($_SESSION['date'] as $jour => &$date) {
-            $newDate = new DateTime($date);
-            $newDate->modify($change);
-            $date = $newDate->format('Y-m-d');
-        }
+        changeDate($change, $today);
     }
 
     if (isset($_POST['plus'])) {
         $noIsset = false;
 
-        if (isset($today) && $today) $change = '+1 day';
+        if ($today) $change = '+1 day';
         else $change = '+1 week';
 
-        foreach ($_SESSION['date'] as $jour => &$date) {
-            $newDate = new DateTime($date);
-            $newDate->modify($change);
-            $date = $newDate->format('Y-m-d');
-        }
+        changeDate($change, $today);
     }
 
     if ($noIsset) {
-        if (isset($today) && $today) $_SESSION['date'] = setDate($today);
+        if ($today) $_SESSION['date'] = setDate($today);
         else $_SESSION['date'] = setDate();
         $_SESSION['max'] = count($_SESSION['date']);
     }
@@ -67,7 +55,7 @@
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
 
 <?php
-    if (isset($today) && $today) echo "Jour précédent";
+    if ($today) echo "Jour précédent";
     else echo 'Semaine précédente';
 ?>
 
@@ -75,7 +63,7 @@
     <button id="sidebarCollapse" type="submit" class="btn btn-light bg-white rounded-pill shadow-sm px-3 mb-4" name="plus">
 
 <?php
-    if (isset($today) && $today) echo "Jour suivant";
+    if ($today) echo "Jour suivant";
     else echo 'Semaine suivante';
 ?>
 
@@ -85,20 +73,13 @@
 
 
 <?php
-    if (empty($results)) {
-        if (isset($today) && $today) echo "Rien pour aujourd'hui.";
-        else echo "Rien pour cette semaine.";
-    }
-    else {
+    $edt = [];
+    foreach ($results as $key => $result)
+        $edt[$result['jour']][] = $result;
 
-        $edt = [];
-        foreach ($results as $key => $result)
-            $edt[$result['jour']][] = $result;
-
-        unset($results);
-        unset($result);
-        unset($stmt);
-        unset($sql);
+    unset($result);
+    unset($stmt);
+    unset($sql);
 ?>
 
 <div class="container">
@@ -110,47 +91,59 @@
         <table class="table table-light table-bordered text-center">
             <thead>
                 <tr>
+
 <?php
     foreach ($_SESSION['date'] as $jour => $date)
         echo ' <th class="text-uppercase">' . "$jour<br>$date</th>";
 ?>
+
                 </tr>
             </thead>
             <tbody>
+
 <?php
-    $tailleMaximale = 0;
-    foreach ($edt as $edtContenu) {
-
-        $tailleEdtContenu = count($edtContenu);
-        if ($tailleEdtContenu > $tailleMaximale) $tailleMaximale = $tailleEdtContenu;
-    }
-
-    $cpt = 0;
-    $fin = false;
-    while (!$fin) {
+    if (empty($results)) {
         echo '<tr>';
-        foreach ($dateArray as $jour => $date){
-            echo '<td>';
-            if (isset($edt[$date][$cpt])) {
-                echo '  <span class="bg-' . $edt[$date][$cpt]['couleur'] . ' padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">' . $edt[$date][$cpt]['nom_matiere'] . '</span>';
-                echo '  <div class="margin-10px-top font-size14">' . $edt[$date][$cpt]['heure_debut'] . ' - ' . $edt[$date][$cpt]['heure_fin'] . '</div>';
-                echo '  <div class="font-size13 text-light-gray">' . $edt[$date][$cpt]['nom_enseignant'] . ' ' . $edt[$date][$cpt]['prenom_enseignant'] . '</div>';
-            }
-            echo '</td>';
+        if ($today) echo "<td>Rien pour aujourd'hui.";
+        else echo '<td colspan="5">Rien pour cette semaine.';
+        echo '</td></tr>';
+    }
+    else {
+
+        $tailleMaximale = 0;
+        foreach ($edt as $edtContenu) {
+
+            $tailleEdtContenu = count($edtContenu);
+            if ($tailleEdtContenu > $tailleMaximale) $tailleMaximale = $tailleEdtContenu;
         }
-        echo '</tr>';
-        $cpt++;
-        if ($cpt == $tailleMaximale) $fin = true;
+
+        $cpt = 0;
+        $fin = false;
+        while (!$fin) {
+            echo '<tr>';
+            foreach ($dateArray as $jour => $date){
+                echo '<td>';
+                if (isset($edt[$date][$cpt])) {
+                    echo '  <span class="bg-' . $edt[$date][$cpt]['couleur'] . ' padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">' . $edt[$date][$cpt]['nom_matiere'] . '</span>';
+                    echo '  <div class="margin-10px-top font-size14">' . $edt[$date][$cpt]['heure_debut'] . ' - ' . $edt[$date][$cpt]['heure_fin'] . '</div>';
+                    echo '  <div class="font-size13 text-light-gray">' . $edt[$date][$cpt]['nom_enseignant'] . ' ' . $edt[$date][$cpt]['prenom_enseignant'] . '</div>';
+                }
+                echo '</td>';
+            }
+            echo '</tr>';
+            $cpt++;
+            if ($cpt == $tailleMaximale) $fin = true;
+        }
     }
 ?>
+
             </tbody>
         </table>
     </div>
 </div>
 
+<!-- fonctions php -->
 <?php
-    }
-
     function setDate(bool $today = false): array
     {
         $weekdays = [];
@@ -199,5 +192,16 @@
             case '7': return 'Dimanche';
             default : return 'Erreur';
         }
+    }
+
+    function changeDate(string $change, bool $today = false): void
+    {
+        foreach ($_SESSION['date'] as $jour => &$date) {
+            $newDate = new DateTime($date);
+            $newDate->modify($change);
+            $date = $newDate->format('Y-m-d');
+        }
+        
+        if ($today) $_SESSION['date'] = [witchDay($newDate->format('N')) => $date];
     }
 ?>

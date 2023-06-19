@@ -7,6 +7,7 @@
 ?>
 
 <head>
+    <title>Accueil <?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom']; ?></title>
     <meta charset="utf-8">
 
     <!-- https://getbootstrap.com/docs/5.3/getting-started/introduction/ -->

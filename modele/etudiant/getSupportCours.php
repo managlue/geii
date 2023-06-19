@@ -1,36 +1,37 @@
 <?php
-    $sql = "SELECT nom_matiere, note, coefficient, commentaire
-            FROM Note NATURAL JOIN Etudiant NATURAL JOIN Matiere
-            WHERE id_etudiant = :id";
-    if (isset($limit)) $sql .= "\n            LIMIT :limit";
+    $pdfPath = "/geii/assets/supports_de_cours_pdf/";
+
+    $sql = "SELECT nom_fichier, nom_enseignant
+            FROM Support_de_cours NATURAL JOIN Enseignant
+            WHERE id_classe = :id";
+    if (isset($limit)) $sql .= " LIMIT :limit";
 
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':id', $_SESSION['idConnected']);
+    $stmt->bindValue(':id', $_SESSION['idClass']);
     if (isset($limit)) $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
 
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (empty($results)) echo "Aucune notes n'a encore été ajoutés par vos professeurs";
+    if (empty($results)) echo "Aucun support de cours n'a été ajouter";
     else {
 ?>
 
 <table class="table table-light table-striped">
     <thead>
         <tr>
-            <th scope="col">Matiere</th>
-            <th scope="col">Note</th>
-            <th scope="col">Coefficient</th>
-            <th scope="col">Commentaire</th>
+            <th scope="col">Fichier partagés</th>
+            <th scope="col">Professeur</th>
         </tr>
     </thead>
     <tbody>
 
 <?php
-    foreach ($results as $ligne) {
-        echo "<tr>";
-        foreach ($ligne as $ligneKey => $ligneElement) echo "<td>$ligneElement</td>";
-        echo "</tr>";
+    foreach ($results as $support) {
+        echo '<tr>';
+        echo '<td><a href="' . $pdfPath . $support['nom_fichier'] . '" download>' . $support['nom_fichier'] . '</a></td>';
+        echo '<td>' . $support['nom_enseignant'] . '</td>';
+        echo '</tr>';
     }
 ?>
 
@@ -41,3 +42,7 @@
     }
 ?>
 
+<!-- 
+    pour améliorer :
+    faire une recherche/un trie par date/prof
+-->

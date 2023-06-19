@@ -29,6 +29,8 @@ foreach (['etudiant', 'enseignant'] as $lookFor) {
                 $_SESSION['idConnected'] = $results[0]["id_$lookFor"];
                 $_SESSION['nom'] = $results[0]["nom_$lookFor"];
                 $_SESSION['prenom'] = $results[0]["prenom_$lookFor"];
+                $_SESSION['idClass'] = $results[0]["id_classe"];
+
             }
             header("location: ../view/vues_$lookFor/$lookFor" . '.php');
             exit;

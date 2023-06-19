@@ -2,7 +2,7 @@
     $sql = "SELECT nom_matiere, note, coefficient, commentaire
             FROM Note NATURAL JOIN Etudiant NATURAL JOIN Matiere
             WHERE id_etudiant = :id";
-    if (isset($limit)) $sql .= "\n            LIMIT :limit";
+    if (isset($limit)) $sql .= " LIMIT :limit";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $_SESSION['idConnected']);
