@@ -32,7 +32,7 @@
           <ul class="navbar-nav justify-content-end flex-grow-1">
 
             <button class="btn" type="button">
-              <a class="link-dark link-underline link-underline-opacity-0" href="/geii/accueil.php">Accueil</a>
+              <a class="link-dark link-underline link-underline-opacity-0 text-decoration-none" href="/geii/accueil.php">Accueil</a>
             </button>
 
             <div class="dropdown">
@@ -47,7 +47,7 @@
             </div>
 
             <button class="btn" type="button">
-              <a class="link-dark link-underline link-underline-opacity-0" href="/geii/modele/login.php">Se connecter</a>
+              <a class="link-dark link-underline link-underline-opacity-0 text-decoration-none" href="/geii/modele/login.php">Se connecter</a>
             </button>
 
             <div class="dropdown">
