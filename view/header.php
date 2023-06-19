@@ -4,7 +4,7 @@
     <div class="container">
 
       <!-- logo -->
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/geii/accueil.php">
         <img src="\geii\assets\icons\GEII.png" alt="" width="124" height="69">
       </a>
 
