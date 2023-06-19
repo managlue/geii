@@ -5,7 +5,6 @@
     
 <body>
     <div class="container">
-        <!-- formulaire de connexion -->
         <div class="form-section">
             <form action="login.php" method="POST">
                 <div class="login-box">
