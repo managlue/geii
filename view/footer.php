@@ -17,8 +17,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 footer-about">
-                        <img class="logo-footer" src="../../assets/icons/GEII.png" alt="logo-footer"
-                            data-at2x="../../assets/icons/GEII.png">
+                        <img class="logo-footer" src="/geii/assets/icons/GEII.png" alt="logo-footer"
+                            data-at2x="/geii/assets/icons/GEII.png">
                         <p>
                             IUT Évry Val d'Essonne
                         </p>
