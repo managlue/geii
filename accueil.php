@@ -10,6 +10,7 @@
     <script src="bootstrap-5.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/Footer/style.css">
     <link rel="stylesheet" href="css/Static_CSS/accueil.css">
+
 </head>
 
 <?php
@@ -71,7 +72,7 @@ include 'view/header.php';
     <div class="card-group">
 
         <div class="card zoom-effect">
-            <a href="vues_formation/geii.php">
+            <a href="view/vues_formation/geii.php">
                 <img src="assets/img/BUT.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
 
@@ -90,7 +91,7 @@ include 'view/header.php';
 
 
     <div class="card zoom-effect">
-        <a href="vues_formation/miaw.php">
+        <a href="view/vues_formation/miaw.php">
             <img src="assets/img/MIAW.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">LP Métiers de l’informatique : applications web</h5>
@@ -106,7 +107,7 @@ include 'view/header.php';
     </div>
     </div>
     <div class="card zoom-effect">
-        <a href="vues_formation/cimisigd.php">
+        <a href="view/vues_formation/cimisigd.php">
             <img src="assets/img/cyber.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">LP Métiers de l’informatique et de cybersécurité – Systèmes d’Information et
