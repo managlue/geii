@@ -3,10 +3,6 @@ body {
     font-family: 'Poppins', sans-serif;
   }
 
-.container {
-    padding: 20px;
-}
-
 .card {
     border: none;
     border-radius: 8px;
@@ -14,7 +10,7 @@ body {
 }
 
 .card-header {
-    background-color: #f8f9fa;
+    background-color: rgba(128, 128, 128, 0.144);
     border-bottom: 1px solid #dee2e6;
     padding: 15px;
 }
@@ -35,4 +31,7 @@ body {
 .accordion-body {
     padding: 15px;
     border-bottom: 1px solid #dee2e6;
+}
+.accordion-button[aria-expanded="true"] {
+    background-color: rgba(128, 128, 128, 0.144)
 }
