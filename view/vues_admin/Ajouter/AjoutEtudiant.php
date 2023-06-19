@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   
-<?php include '../../../../modele/connexionBd.php'; ?>
+<?php include '../../../modele/connexionBd.php'; ?>
 
 <head>
   <title>Création d'étudiants</title>

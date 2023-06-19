@@ -14,7 +14,7 @@
 
 <style>
   .custom-card-image {
-    width: 250px;
+    width: auto;
     height: 150px;
     object-fit: cover;
   }
@@ -52,7 +52,7 @@
 
 <?php echo $offre['lieu'] . '<br>'; ?>
 <?php echo 'Rémunération : ' . $offre['remuneration'] . '<br>'; ?>
-<?php echo 'Date limite : ' . $offre['date_limite'] . '<br>'; ?>
+<?php echo 'Deadline : ' . $offre['date_limite'] . '<br>'; ?>
 <?php echo 'Postuler : ' . $offre['postuler']; ?> 
 
                     </p>

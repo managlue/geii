@@ -30,7 +30,7 @@
     $max = $_SESSION['max'];
 
     $sql = "SELECT heure_debut, heure_fin, salle, nom_enseignant, prenom_enseignant, nom_matiere, couleur, jour
-        FROM Emploi_du_temps NATURAL JOIN Enseignant NATURAL JOIN Matiere WHERE";
+        FROM Emploi_du_temps NATURAL JOIN Matiere NATURAL JOIN Enseignant WHERE";
 
     for ($cpt = 0; $cpt < $max; $cpt++) {
         $sql .= " jour = :jour$cpt";
