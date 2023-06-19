@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   
-<?php include '../../../../modele/connexionBd.php'; ?>
+<?php include '../../../modele/connexionBd.php'; ?>
 
 <head>
   <title>Création d'étudiants</title>
@@ -9,9 +9,9 @@
 </head>
 
 <body>
-  <h2>Ajouter des étudiants</h2>
+  <h2>Ajouter des enseignants</h2>
 
-  <p>Combien voulez-vous ajouter d'étudiants</p>
+  <p>Combien voulez-vous ajouter d'enseignants</p>
 
 <?php
   $nb = 5;
@@ -19,11 +19,11 @@
 ?>
 
   <form method="post" action="">
-    <input type="number" class="ele" id="nb" name="nb" placeholder="Combien d'étudiants voulez vous ajouter ?">
+    <input type="number" class="ele" id="nb" name="nb" placeholder="Combien d'enseignants voulez vous ajouter ?">
     <button>Valider</button>
   </form>
 
-  <p>Entrez des étudiants en saisissant leurs paramètres</p>
+  <p>Entrez des enseignants en saisissant leurs paramètres</p>
 
   <div class="container">
     <div class="form-section">
@@ -57,7 +57,7 @@
 
 <?php
   if (isset($_POST['ajouter'])) {
-    $sql = "INSERT INTO etudiant (nom_etudiant, prenom_etudiant, login_etudiant, pswd_etudiant, id_classe) VALUES ";
+    $sql = "INSERT INTO enseignant (nom_enseignant, prenom_enseignant, login_enseignant, pswd_enseignant, id_classe) VALUES ";
     $requestIsValide = false;
 
     for ($cpt = 0; $cpt < $nb; $cpt++) {
@@ -75,3 +75,4 @@
       $stmt->execute();
     }
   }
+?>
