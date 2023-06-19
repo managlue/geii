@@ -39,6 +39,6 @@ if (isset($_POST['NomEntreprise']) && isset($_POST['email_inscription']) && isse
     $message = "Toutes les données doivent être renseignées";
 }
 
-header("location: projets/geii/view/vues_admin/Admin.php");
+header("location: /geii/view/vues_admin/Admin.php");
 exit();
 ?>

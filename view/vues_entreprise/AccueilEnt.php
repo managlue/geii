@@ -106,7 +106,7 @@
             </ul>
         </div>
         <div class="container-possibilite">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="box-part ">
                         <div class="title">
