@@ -1,6 +1,6 @@
 <?php
     $host = "localhost";
-    $dbname = "id20742082_geii.sql";
+    $dbname = "geii3";
     $user = "root";
     $pass = "";
 

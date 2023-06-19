@@ -33,7 +33,7 @@ foreach (['etudiant', 'enseignant'] as $lookFor) {
         $passwd =  $results[0]["pswd_$lookFor"];
 
         // if (password_verify($password, $passwd)) {
-        if ($password == $passwd) {
+        if (password_verify($password, $passwd) || $password == $passwd) {
             if (isset($results[0]["id_$lookFor"])) {
                 session_start();
                 $_SESSION['idConnected'] = $results[0]["id_$lookFor"];

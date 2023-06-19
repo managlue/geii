@@ -56,17 +56,13 @@
 </html>
 
 <?php
-
-  var_dump($_POST);
-
   if (isset($_POST['ajouter'])) {
-
     $sql = "INSERT INTO etudiant (nom_etudiant, prenom_etudiant, login_etudiant, pswd_etudiant, id_classe) VALUES ";
     $requestIsValide = false;
 
     for ($cpt = 0; $cpt < $nb; $cpt++) {
       if (!empty($_POST["nom$cpt"]) && !empty($_POST["prenom$cpt"]) && !empty($_POST["login$cpt"]) && !empty($_POST["password$cpt"]) && !empty($_POST["class$cpt"])) {
-        $sql .= "('" . $_POST["nom$cpt"] . "','" . $_POST["prenom$cpt"] . "','" . $_POST["login$cpt"] . "','" . $_POST["password$cpt"] . "'," . intval($_POST["class$cpt"]) . ")";
+        $sql .= "('" . $_POST["nom$cpt"] . "','" . $_POST["prenom$cpt"] . "','" . $_POST["login$cpt"] . "','" . password_hash($_POST["password$cpt"], PASSWORD_DEFAULT) . "'," . intval($_POST["class$cpt"]) . ")";
         $requestIsValide = true;
       }
     }
@@ -74,11 +70,8 @@
     $sql = str_replace(')(', '), (', $sql);
     $sql .= ';';
 
-    var_dump($sql);
-
     if ($requestIsValide) {
       $stmt = $pdo->prepare($sql);
-      var_dump($stmt);
       $stmt->execute();
     }
   }
