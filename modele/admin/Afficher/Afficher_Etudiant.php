@@ -1,8 +1,8 @@
 <?php
-try {
-    $conn = new PDO("mysql:host=localhost;dbname=test", 'root', '');
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
+include 'C:\wamp64\www\projets\geii\modele\connexionBd.php';
+
+try { 
     
     if (isset($_GET['page_etudiant'])) {
       $pageActuelle_Etudiant = $_GET['page_etudiant'];
@@ -14,7 +14,7 @@ try {
     $indiceDepart = ($pageActuelle_Etudiant - 1) * $etudiantsParPage;
     
     // Requête pour récupérer les étudiants paginés
-    $stmt = $conn->prepare("SELECT  etudiant.id_etudiant, nom_etudiant, prenom_etudiant, login_etudiant, pswd_etudiant, nom_classe 
+    $stmt = $pdo->prepare("SELECT  etudiant.id_etudiant, nom_etudiant, prenom_etudiant, login_etudiant, pswd_etudiant, nom_classe 
                             FROM etudiant
                             JOIN classe ON etudiant.id_classe = classe.id_classe
                             LIMIT :start, :limit");
@@ -24,7 +24,7 @@ try {
     $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     // Compter le nombre total d'étudiants
-    $stmtCount = $conn->query("SELECT COUNT(*) FROM etudiant");
+    $stmtCount = $pdo->query("SELECT COUNT(*) FROM etudiant");
     $totalEtudiants = $stmtCount->fetchColumn();
     
     // Calcul du nombre total de pages
