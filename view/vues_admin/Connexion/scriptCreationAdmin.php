@@ -1,6 +1,6 @@
 <?php
   
-  include '../../../modele/connexionBd.php';
+  include '/geii/modele/connexionBd.php';
 
   $mdp = password_hash('admin', PASSWORD_DEFAULT);
   

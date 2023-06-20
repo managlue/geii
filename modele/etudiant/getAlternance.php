@@ -1,5 +1,4 @@
 <?php
-    include '../../modele/connexionBd.php';
     $imagePath = '/geii/assets/img/';
 
     $sql = "SELECT competences, date_ajout, date_limite, description_entr, image, lieu, postuler, remuneration, sujet_offre, titre_offre, nom_entreprise

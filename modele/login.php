@@ -42,7 +42,7 @@ foreach (['etudiant', 'enseignant'] as $lookFor) {
                 $_SESSION['idClass'] = $results[0]["id_classe"];
 
             }
-            header("location: ../view/vues_$lookFor/$lookFor" . '.php');
+            header("location: /geii/view/vues_$lookFor/$lookFor" . '.php');
             exit;
         } else $pb = 'Mot de passe';
     } else $pb = 'Identifiant';

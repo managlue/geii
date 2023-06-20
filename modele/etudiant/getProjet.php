@@ -1,5 +1,4 @@
 <?php
-    include '../../modele/connexionBd.php';
     $imagePath = '/geii/assets/img/';
     $pdfPath = '/geii/assets/pdf/';
 
