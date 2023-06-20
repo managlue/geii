@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  
+
 <?php include '../../../modele/connexionBd.php'; ?>
 
 <head>
