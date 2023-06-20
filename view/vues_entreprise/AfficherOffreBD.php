@@ -85,6 +85,7 @@
         echo '<div class="d-flex justify-content-end align-items-center">';
         echo '<div>';
         echo '<a href="ModifierOffre.php?id=' . $row['id_offre'] . '"><button class="btn btn-primary">Modifier l\'offre</button></a>';
+        echo '&nbsp;';
         echo '<a href="SupprimerOffre.php?id=' . $row['id_offre'] . '"><button class="btn btn-danger ml-2">Supprimer l\'offre</button></a>';
         echo '</div>';
         echo '</div>';
