@@ -1,6 +1,7 @@
 <?php
 session_start();
-include '../../../../modele/connexionBd.php';
+include '../../../modele/connexionBd.php';
+
 $error_message = "";
 
 if (isset($_POST['identifiant']) && isset($_POST['password'])) {
@@ -10,7 +11,7 @@ if (isset($_POST['identifiant']) && isset($_POST['password'])) {
     try {
 
 
-        $stmt = $pdo->prepare("SELECT pswd_admin FROM admin_util WHERE identifiant_admin = :identifiant");
+        $stmt = $pdo->prepare("SELECT pswd_admin FROM admin WHERE identifiant_admin = :identifiant");
         $stmt->bindParam(':identifiant', $identifiant);
         $stmt->execute();
 
@@ -32,7 +33,7 @@ if (isset($_POST['identifiant']) && isset($_POST['password'])) {
             } else {
                 // Authentification réussie
                 $_SESSION['identifiant'] = $identifiant;
-                header("Location: /Accueil/vues_admin/Admin.php");
+                header("Location: /geii/view/vues_admin/Admin.php");
                 exit();
             }
         }
