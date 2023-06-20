@@ -10,6 +10,12 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
+
+<?php if (!isset($_SESSION['id_entreprise'])) {
+        header("location: /geii/view/vues_entreprise/co.php");
+        exit();
+    }?>
+
 <?php include "../header.php"?>
 <div class="header-nightsky"></div>
     <div class="hero">
