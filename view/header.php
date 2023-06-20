@@ -82,11 +82,16 @@
               <?php }
               echo $menuConnexion; ?>
 
+              <?php if (isset($_SESSION['identifiant'])) {  ?>
+                <button class="btn" type="button">
+                  <a class="link-dark link-underline link-underline-opacity-0 text-decoration-none" href="/geii/view/vues_entreprise/deconnexion.php">Déconnexion</a>
+                </button>
 
-              <button class="btn" type="button">
-                <a class="link-dark link-underline link-underline-opacity-0 text-decoration-none" href="/geii/modele/login.php">Se connecter</a>
-              </button>
-
+              <?php } else { ?>
+                <button class="btn" type="button">
+                  <a class="link-dark link-underline link-underline-opacity-0 text-decoration-none" href="/geii/modele/login.php">Se connecter</a>
+                </button>
+              <?php }  ?>
             </ul>
           </div>
         </div>

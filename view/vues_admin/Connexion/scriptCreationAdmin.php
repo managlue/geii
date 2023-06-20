@@ -10,3 +10,4 @@
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':mdp', $mdp);
   $stmt->execute();
+  ?>

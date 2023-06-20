@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,6 +15,11 @@
 </head>
 
 <body>
+<?php if (!isset($_SESSION['identifiant'])) {
+        header("location: /geii/view/vues_admin/Connexion/ConnexionAdmin.php");
+        exit();
+    }
+    ?>
     <?php
     include '../header.php';
     include '../../modele/admin/Afficher/Afficher_Enseignant.php';
