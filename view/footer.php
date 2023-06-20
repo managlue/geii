@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-md-6">
                                 <p><a href="/geii/view/vues_entreprise/AccueilEnt.php">Espace Entreprise</a></p>
-                                <p><a href="../vues_formation/mentions.php">Mentions légales</a></p>
+                                <p><a href="/geii/view/vues_formation/mentionLeg.php">Mentions légales</a></p>
                             </div>
                         </div>
                     </div>
