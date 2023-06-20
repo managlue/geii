@@ -55,8 +55,14 @@
 
 body {
   background: #599fd9;
-  background: -webkit-linear-gradient(to right, #1668ab, #e39050);
-  background: linear-gradient(to right, #1668ab, #e39050);
+
+  /* les couleurs que j'ai été forcé de mettre */
+  background: -webkit-linear-gradient(to left, #cbe6fd, #68a4fff1);
+  background: linear-gradient(to left, #cbe6fd, #68a4fff1);
+
+  /* les couleurs que je voulais */
+  /* background: -webkit-linear-gradient(to right, #1668ab, #e39050); */
+  /* background: linear-gradient(to right, #1668ab, #e39050); */
   min-height: 100vh;
   overflow-x: hidden;
 }

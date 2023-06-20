@@ -2,7 +2,7 @@
 <html lang="FR">
 
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <title>Site web GEII</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">

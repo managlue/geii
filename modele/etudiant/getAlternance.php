@@ -86,4 +86,5 @@
 <!-- 
     vois d'améliorations :
     mettre des popovers "Dismiss on next click"
+    empécher l'élargissement quand la ligne n'est pas complète
  -->

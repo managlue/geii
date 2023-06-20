@@ -46,7 +46,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-dark font-italic">
+            <a href="projets-tut.php" class="nav-link text-dark font-italic">
                 <i class="fa fa-laptop mr-3 text-primary fa-fw"></i>
                 Projets tutorés
             </a>
