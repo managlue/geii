@@ -1,4 +1,6 @@
 <?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,10 +14,8 @@
 </head>
 
 <body>
-  <?php
-
+<?php
 include '../../modele/connexionBd.php';
-
   if (isset($_SESSION['id_entreprise'])) {
     try {
      

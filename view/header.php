@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Menu</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/css/bootstrap.min.css">
@@ -9,6 +10,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-md bg-light bsb-navbar bsb-navbar-hover bsb-navbar-caret">
@@ -51,10 +53,35 @@
                   Entreprise
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/geii/view/vues_entreprise/AccueilEnt">Accueil Entreprise</a></li>
-                  <li><a class="dropdown-item" href="/geii/view/vues_entreprise/co.php">Vous connecter</a></li>
+                  <li><a class="dropdown-item" href="/geii/view/vues_entreprise/AccueilEnt.php">Accueil Entreprise</a></li>
+                  <?php if (isset($_SESSION['id_entreprise'])) { ?>
+                    <li><a class="dropdown-item" href="/geii/view/vues_entreprise/AjouterOffre.php">Publier une offre</a></li>
+                    <li><a class="dropdown-item" href="/geii/view/vues_entreprise/AfficherOffreBD.php">Afficher les offres</a></li>
+                    <li><a class="dropdown-item" href="/geii/view/vues_entreprise/AjouterProjet.php">Ajouter un projet</a></li>
+                    <li><a class="dropdown-item" href="/geii/view/vues_entreprise/AfficherProjet.php">Afficher les projets</a></li>
+                  <?php } else { ?>
+                    <li><a class="dropdown-item" href="/geii/view/vues_entreprise/co.php">Vous connecter</a></li>
+                  <?php } ?>
                 </ul>
               </div>
+
+              <?php
+              $menuConnexion = "";
+
+              if (isset($_SESSION['id_entreprise'])) { ?>
+
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <?php echo 'Bienvenue, ' . $_SESSION['nom_entreprise']; ?>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/geii/view/vues_entreprise/deconnexion.php">Déconnexion</a></li>
+                  </ul>
+                </div>
+
+              <?php }
+              echo $menuConnexion; ?>
+
 
               <button class="btn" type="button">
                 <a class="link-dark link-underline link-underline-opacity-0 text-decoration-none" href="/geii/modele/login.php">Se connecter</a>
@@ -67,4 +94,5 @@
     </nav>
   </header>
 </body>
+
 </html>
